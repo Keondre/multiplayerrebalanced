@@ -881,7 +881,7 @@ focus_tree = {
 				}
 				add_resource = {
 					type = steel
-					amount = 2
+					amount = 6
 				}
 			}
 			random_owned_controlled_state = {
@@ -891,7 +891,7 @@ focus_tree = {
 				}
 				add_resource = {
 					type = steel
-					amount = 2
+					amount = 6
 				}
 			}
 			random_owned_controlled_state = {
@@ -901,7 +901,7 @@ focus_tree = {
 				}
 				add_resource = {
 					type = chromium
-					amount = 3
+					amount = 12
 				}
 			}
 		}
@@ -1713,7 +1713,6 @@ focus_tree = {
 		id = CAN_independent_command
 		icon = GFX_goal_generic_army_doctrines
 		prerequisite = { focus = CAN_send_in_the_zombies }
-		prerequisite = { focus = CAN_red_deer_training_camp }
 		x = 4
 		y = 5
 		relative_position_id = CAN_defence_of_canada_regulations
@@ -2220,7 +2219,7 @@ focus_tree = {
 		id = CAN_red_deer_training_camp
 		icon = GFX_goal_generic_military_sphere
 		prerequisite = { focus = CAN_royal_regiment_of_canadian_artillery focus = CAN_a_motorized_army }
-		x = -2
+		x = 0
 		y = 4
 		relative_position_id = CAN_army_modernization 
 
@@ -2260,9 +2259,9 @@ focus_tree = {
 	focus = {
 		id = CAN_1st_canadian_parachute_battalion
 		icon = GFX_goal_generic_special_forces 
-		prerequisite = { focus = CAN_a_motorized_army }
-		x = 2
-		y = 4
+		prerequisite = { focus = CAN_red_deer_training_camp }
+		x = 3
+		y = 5
 		relative_position_id = CAN_army_modernization 
 
 		cost = 10
@@ -2333,7 +2332,6 @@ focus_tree = {
 				bonus = 0.50
 				uses = 1
 				category = marine_tech
-				category = para_tech
 			}
 		}
 	}
@@ -2433,7 +2431,7 @@ focus_tree = {
 	focus = {
 		id = CAN_strengthen_the_commonwealth_ties
 		icon = GFX_goal_tfv_strengthen_commonwealth_ties
-		x = 25
+		x = 20
 		y = 0
 
 		cost = 10
@@ -2481,7 +2479,7 @@ focus_tree = {
 		id = CAN_shadow_factories
 		icon = GFX_goal_generic_construct_mil_factory
 		prerequisite = { focus = CAN_strengthen_the_commonwealth_ties }
-		x = -2
+		x = -1
 		y = 1
 		relative_position_id = CAN_strengthen_the_commonwealth_ties
 
@@ -2604,7 +2602,7 @@ focus_tree = {
 		id = CAN_montreal_laboratory_collaboration
 		icon = GFX_goal_tfv_generic_tech_sharing
 		prerequisite = { focus = CAN_strengthen_the_commonwealth_ties }
-		x = 0
+		x = 1
 		y = 1
 		relative_position_id = CAN_strengthen_the_commonwealth_ties
 
@@ -2644,18 +2642,17 @@ focus_tree = {
 	focus = {
 		id = CAN_the_plan
 		icon = GFX_goal_generic_air_fighter
-		prerequisite = { focus = CAN_shadow_factories }
-		x = -2
-		y = 2
-		relative_position_id = CAN_strengthen_the_commonwealth_ties
-
+		prerequisite = { focus = CAN_fund_fairchilds_development focus = CAN_cookie_carriers }
+		x = 0
+		y = 4
+		relative_position_id = CAN_rcaf_station_borden
 		cost = 10
 
 		ai_will_do = {
 			factor = 25
 			modifier = {
 				factor = 2
-				has_completed_focus = CAN_supply_the_empire
+				has_completed_focus = CAN_fund_fairchilds_development
 			}
 		}
 
@@ -2668,7 +2665,7 @@ focus_tree = {
 		}
 
 		cancel_if_invalid = yes
-		continue_if_invalid = no
+		continue_if_invalid = yes
 		available_if_capitulated = no
 
 		complete_tooltip = {
@@ -2683,7 +2680,8 @@ focus_tree = {
 	focus = {
 		id = CAN_camp_x
 		icon = GFX_goal_generic_intelligence_exchange 
-		prerequisite = { focus = CAN_montreal_laboratory_collaboration }
+		prerequisite = { focus = CAN_montreal_laboratory_collaboration  }
+		prerequisite = { focus = CAN_shadow_factories }
 		x = 0
 		y = 2
 		relative_position_id = CAN_strengthen_the_commonwealth_ties
@@ -2728,9 +2726,8 @@ focus_tree = {
 	focus = {
 		id = CAN_supply_the_empire
 		icon = GFX_goal_generic_construction2
-		prerequisite = { focus = CAN_the_plan}
 		prerequisite = { focus = CAN_camp_x }
-		x = -1
+		x = 0
 		y = 3
 		relative_position_id = CAN_strengthen_the_commonwealth_ties
 
@@ -2774,7 +2771,7 @@ focus_tree = {
 		id = CAN_aluminium_company_of_canada
 		icon = GFX_goal_generic_positive_trade_relations 
 		prerequisite = { focus = CAN_supply_the_empire }
-		x = -2
+		x = -1
 		y = 4
 		relative_position_id = CAN_strengthen_the_commonwealth_ties
 
@@ -2828,7 +2825,7 @@ focus_tree = {
 		id = CAN_turner_valley_oilfield
 		icon = GFX_goal_generic_oil_refinery
 		prerequisite = { focus = CAN_supply_the_empire }
-		x = 0
+		x = 1
 		y = 4
 		relative_position_id = CAN_strengthen_the_commonwealth_ties
 
@@ -2888,7 +2885,7 @@ focus_tree = {
 	focus = {
 		id = CAN_rcaf_station_borden
 		icon = GFX_goal_generic_build_airforce
-		x = 30
+		x = 25
 		y = 0
 
 		cost = 10
@@ -2990,10 +2987,8 @@ focus_tree = {
 				name = CAN_we_have_the_hurricane
 				bonus = 0.5
 				uses = 1
-				technology = early_fighter
 				technology = fighter1
-				technology = fighter2
-				technology = fighter3
+			
 			}
 		}
 	}
@@ -3359,10 +3354,9 @@ focus_tree = {
 	focus = {
 		id = CAN_the_sabre_project
 		icon = GFX_focus_rocketry
-		prerequisite = { focus = CAN_cookie_carriers }
-		prerequisite = { focus = CAN_fund_fairchilds_development }
+		prerequisite = { focus = CAN_the_plan }
 		x = 0
-		y = 4
+		y = 5
 		relative_position_id = CAN_rcaf_station_borden
 
 		cost = 10
@@ -3406,7 +3400,7 @@ focus_tree = {
 	focus = {
 		id = CAN_halifax_shipyards
 		icon = GFX_goal_generic_construct_naval_dockyard
-		x = 35
+		x = 30
 		y = 0
 
 		cost = 10
