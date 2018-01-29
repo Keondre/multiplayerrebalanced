@@ -1507,7 +1507,7 @@ focus_tree = {
 	focus = {
 		id = CAN_long_branch_arsenal
 		icon = GFX_goal_generic_small_arms
-		prerequisite = { focus = CAN_departments_of_munitions_and_supply }
+		prerequisite = { focus = CAN_department_of_munitions_and_supply }
 		x = -1
 		y = 2
 		relative_position_id = CAN_war_bonds
