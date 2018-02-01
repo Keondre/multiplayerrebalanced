@@ -1048,12 +1048,8 @@ focus_tree = {
 				name = fighter_bonus
 				bonus = 0.5
 				uses = 1
-				technology = early_fighter
 				technology = fighter1
-				technology = fighter2
-				technology = fighter3
-				technology = jet_fighter1
-				technology = jet_fighter2
+
 			}
 			add_tech_bonus = {
 				name = air_doc_bonus
@@ -1107,11 +1103,8 @@ focus_tree = {
 				name = bb_bonus
 				bonus = 0.5
 				uses = 2
-				technology = basic_battleship
 				technology = improved_battleship
-				technology = advanced_battleship
 				technology = heavy_battleship
-				technology = heavy_battleship2
 			}
 			add_tech_bonus = {
 				name = cr_bonus
@@ -1146,14 +1139,12 @@ focus_tree = {
 				bonus = 0.5
 				uses = 1
 				technology = tactical_bomber2
-				technology = tactical_bomber3
 			}
 			add_tech_bonus = {
 				name = ITA_bomber_effort
 				bonus = 0.5
 				uses = 1
 				technology = CAS2
-				technology = CAS3
 			}
 		}
 	}
@@ -1182,7 +1173,6 @@ focus_tree = {
 				uses = 1
 				technology = naval_bomber1
 				technology = naval_bomber2
-				technology = naval_bomber3
 			}
 		}
 	}
@@ -1269,12 +1259,7 @@ focus_tree = {
 				name = fighter_bonus
 				bonus = 0.5
 				uses = 1
-				technology = early_fighter
-				technology = fighter1
 				technology = fighter2
-				technology = fighter3
-				technology = jet_fighter1
-				technology = jet_fighter2
 			}
 			add_tech_bonus = {
 				name = air_doc_bonus
@@ -1415,7 +1400,7 @@ focus_tree = {
 		icon = GFX_goal_generic_wolf_pack
 		prerequisite = { focus = ITA_submarine_effort }
 		prerequisite = { focus = ITA_german_millitary_cooperation }
-		x = 9
+		x = 10
 		y = 5
 		cost = 10
 		ai_will_do = {
@@ -1582,6 +1567,7 @@ focus_tree = {
 		
 		available = {
 			country_exists = ALB
+			GER = { has_war_with = POL }
 		}
 
 		cost = 10
@@ -1589,13 +1575,18 @@ focus_tree = {
 			factor = 10
 			modifier = {
 				factor = 0
-				date < 1937.1.1
+				date < 1939.1.1
 			}	
 		}	
 		completion_reward = {
 			ALB = { country_event = { id = italy.3 } }
 		}
 	}
+
+
+
+
+
 
 	focus = {
 		id = ITA_pact_of_steel
