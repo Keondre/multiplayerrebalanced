@@ -165,9 +165,8 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = infantry_artillery_bonus
-				ahead_reduction = 1
+				bonus = 0.5
 				uses = 1
-				category = infantry_weapons
 				category = artillery
 			}
 		}
@@ -187,8 +186,13 @@ focus_tree = {
 			add_tech_bonus = {
 				name = armor_bonus
 				bonus = 0.5
-				uses = 2
-				category = armor
+				uses = 1
+				technology = basic_medium_tank
+				technology = improved_medium_tank
+				technology = basic_light_tank
+				technology = improved_light_tank
+				technology = basic_heavy_tank
+				technology = improved_heavy_tank
 			}
 		}
 	}
@@ -318,14 +322,11 @@ focus_tree = {
 			add_tech_bonus = {
 				name = fighter_bonus
 				bonus = 0.5
-				uses = 2
-				technology = early_fighter
+				uses = 1
 				technology = fighter1
 				technology = fighter2
-				technology = fighter3
 				technology = heavy_fighter1
 				technology = heavy_fighter2
-				technology = heavy_fighter3
 			}
 		}
 	}
@@ -345,11 +346,11 @@ focus_tree = {
 			add_tech_bonus = {
 				name = bomber_bonus
 				bonus = 0.5
-				uses = 2
+				uses = 1
 				technology = strategic_bomber1
 				technology = strategic_bomber2
-				technology = strategic_bomber3
-				category = tactical_bomber
+				technology = tactical_bomber1
+				technology = tactical_bomber2
 			}
 		}
 	}
@@ -457,7 +458,8 @@ focus_tree = {
 				bonus = 0.5
 				ahead_reduction = 1
 				uses = 1
-				category = cas_bomber
+				technology = cas1
+				technology = cas2
 			}
 		}
 	}
@@ -477,7 +479,7 @@ focus_tree = {
 			add_tech_bonus = {
 				name = jet_rocket_bonus
 				ahead_reduction = 0.5
-				uses = 2
+				uses = 1
 				category = rocketry
 				category = jet_technology
 			}
@@ -507,9 +509,11 @@ focus_tree = {
 			add_tech_bonus = {
 				name = nav_bomber_bonus
 				bonus = 0.5
-				ahead_reduction = 1
 				uses = 1
-				category = naval_bomber
+				technology = naval_bomber1
+				technology = naval_bomber2
+				technology = naval_bomber3
+
 			}
 		}
 	}
@@ -780,12 +784,13 @@ focus_tree = {
 			add_tech_bonus = {
 				name = cr_bonus
 				bonus = 0.5
-				ahead_reduction = 1
 				uses = 1
+				technology = basic_light_cruiser
+				technology = basic_heavy_cruiser
+				technology = early_light_cruiser
+				technology = early_heavy_cruiser
 				technology = improved_light_cruiser
-				technology = advanced_light_cruiser
 				technology = improved_heavy_cruiser
-				technology = advanced_heavy_cruiser
 			}
 		}
 	}
@@ -823,7 +828,6 @@ focus_tree = {
 				technology = early_destroyer
 				technology = basic_destroyer
 				technology = improved_destroyer
-				technology = advanced_destroyer
 			}
 		}
 	}
@@ -862,13 +866,10 @@ focus_tree = {
 				technology = basic_battlecruiser
 				technology = basic_battleship
 				technology = improved_battleship
-				technology = advanced_battleship
 				technology = heavy_battleship
-				technology = heavy_battleship2
 				technology = early_carrier
 				technology = basic_carrier
 				technology = improved_carrier
-				technology = advanced_carrier
 			}
 		}
 	}
@@ -1569,26 +1570,7 @@ focus_tree = {
 		}
 	}
 	
-	focus = {
-		id = extra_tech_slot_2
-		icon = GFX_focus_research
-		prerequisite = { focus = extra_tech_slot }
-		available = {
-			num_of_factories > 50
-		}
-		cancel_if_invalid = no
-		continue_if_invalid = yes
-		x = 12
-		y = 6
-		cost = 10
-
-		available_if_capitulated = yes
-
-		completion_reward = {
-			add_research_slot = 1
-		}
-	}	
-
+	
 	focus = {
 		id = secret_weapons
 		icon = GFX_goal_generic_secret_weapon
@@ -1603,7 +1585,7 @@ focus_tree = {
 			add_tech_bonus = {
 				name = secret_bonus
 				bonus = 0.5
-				uses = 4
+				uses = 2
 				category = electronics
 				category = nuclear
 				category = rocketry
@@ -1680,6 +1662,7 @@ focus_tree = {
 			OR = {
 				has_government = fascism
 				has_government = neutrality
+				date > 1940.1.1
 			}
 		}
 		x = 16
@@ -1725,6 +1708,7 @@ focus_tree = {
 					OR = {
 						has_government = communism
 						has_government = neutrality
+						date > 1940.1.1
 					}
 				}
 			}

@@ -964,8 +964,8 @@ focus_tree = {
 				name = fighter_command_focus
 				bonus = 0.5
 				uses = 2
-				technology = basic_light_fighter
-				technology = improved_light_fighter
+				technology = fighter1
+				technology = fighter2
 			}
 		}
 	}
@@ -988,8 +988,8 @@ focus_tree = {
 				name = bomber_command_focus
 				bonus = 0.5
 				uses = 2
-				technology = basic_strategic_bomber
-				technology = improved_strategic_bomber
+				technology = strategic_bomber1
+				technology = strategic_bomber2
 			}
 		}
 	}
@@ -1011,15 +1011,15 @@ focus_tree = {
 				name = coastal_command_focus
 				bonus = 0.5
 				uses = 1
-				technology = basic_naval_bomber
-				technology = improved_naval_bomber
+				technology = naval_bomber1
+				technology = naval_bomber2
 			}
 			add_tech_bonus = {
 				name = coastal_command_focus
 				bonus = 0.5
 				uses = 1
-				technology = basic_tactical_bomber
-				technology = improved_tactical_bomber
+				technology = tactical_bomber1
+				technology = tactical_bomber2
 
 			}
 		}
