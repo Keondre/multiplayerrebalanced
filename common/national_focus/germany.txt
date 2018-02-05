@@ -1250,6 +1250,7 @@ focus_tree = {
 			is_puppet = no
 			has_army_manpower = { size > 549999 }
 			NOT = { has_idea = rhineland_challenge_met }
+			date > 1938.1.1
 		}
 		cancel = {
 			OR = {
@@ -1391,7 +1392,10 @@ focus_tree = {
 		id = GER_demand_memel
 		icon = GFX_goal_generic_forceful_treaty
 		prerequisite = { focus = GER_anschluss }
-		available = { is_puppet = no }
+		available = { is_puppet = no
+		date 1939.1.1 
+		}
+
 		x = 16
 		y = 2
 		cost = 10
@@ -1404,7 +1408,7 @@ focus_tree = {
 			factor = 10	
 			modifier = {
 				factor = 0
-				date < 1939.1.1
+				date > 1939.1.1
 			}
 		}	
 		completion_reward = {
@@ -1761,109 +1765,6 @@ focus_tree = {
 			}
 			hidden_effect = {
 				news_event = { hours = 6 id = news.234 }
-			}
-		}
-	}
-	
-	focus = {
-		id = GER_czech_friend
-		icon = GFX_goal_generic_improve_relations
-		prerequisite = { focus = GER_anschluss }
-		mutually_exclusive = { focus = GER_demand_sudetenland }
-		available = { 
-			has_army_manpower = { size > 749999 }
-			NOT = { has_war_with = CZE }
-			CZE = {
-				custom_trigger_tooltip = {
-					tooltip = GER_alone_or_peace_faction_tt
-					is_alone_or_in_faction_at_peace_with_GER = yes
-				}
-				exists = yes
-			}
-		}
-		bypass = {
-			CZE = { is_in_faction_with = GER }
-		}
-		cancel = {
-			OR = {
-				NOT = { country_exists = CZE }
-				has_war_with = CZE
-			}
-		}
-		cancel_if_invalid = no
-		x = 12
-		y = 2
-		cost = 10
-		ai_will_do = {
-			factor = 2.5
-			modifier = {
-				factor = 0
-				CZE = {
-					has_opinion = {
-						target = GER
-						value < 0
-					}
-				}
-			}
-			modifier = {
-				factor = 5
-				CZE = {
-					has_opinion = {
-						target = GER
-						value > 20
-					}
-				}
-			}
-			modifier = {
-				factor = 4
-				CZE = {
-					has_completed_focus = CZE_german_leanings
-				}
-			}
-			modifier = {
-				factor = 4
-				CZE = {
-					has_completed_focus = CZE_deliver_sudetenland
-				}
-			}
-			modifier = {
-				factor = 2
-				CZE = {
-					has_completed_focus = CZE_go_right
-				}
-			}
-		}		
-		completion_reward = {
-			CZE = {
-				add_opinion_modifier = { target = GER modifier = ger_cze_diplomatic_focus }
-				if = {
-					limit = {
-						GER = {
-							has_government = fascism
-						}
-					}
-					add_ideas = fascist_influence
-				}
-				if = {
-					limit = {
-						GER = {
-							has_government = communism
-						}
-					}
-					add_ideas = communist_influence
-				}
-				if = {
-					limit = {
-						GER = {
-							has_government = democratic
-						}
-					}
-					add_ideas = democratic_influence
-				}
-				country_event = { id = generic.1 }
-			}
-			hidden_effect = {
-				news_event = { hours = 6 id = news.200 }
 			}
 		}
 	}

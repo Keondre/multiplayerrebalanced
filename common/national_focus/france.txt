@@ -1254,14 +1254,9 @@ focus_tree = {
 			}
 			NOT = { has_war_with = ENG }
 		}
-		bypass = {
-			is_in_faction_with = ENG
-			NOT = {
-				has_completed_focus = FRA_little_entente
-			}
-		}
+		
 	 	prerequisite = { focus = FRA_support_status_quo }
-	 	mutually_exclusive = { focus = FRA_little_entente }
+
 		x = -1
 		y = 2
 		cost = 10

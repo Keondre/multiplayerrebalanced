@@ -1523,7 +1523,6 @@ focus_tree = {
 		id = uk_rock_focus 
 		prerequisite = { focus = uk_mediterranean_focus }
 		relative_position_id = uk_mediterranean_focus
-		mutually_exclusive = { focus = uk_spain_focus }
 		available = {
 			118 = { is_owned_and_controlled_by = ENG }
 		} 

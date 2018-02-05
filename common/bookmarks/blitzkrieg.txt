@@ -17,7 +17,7 @@ bookmarks = {
 			focuses = {
 				FRA_initiate_government_reform
 				FRA_support_status_quo
-				FRA_revise_versailles
+				
 			}
 		}
 		USA = {
@@ -47,7 +47,6 @@ bookmarks = {
 				ENG_colonial_elite
 			}
 			focuses = {
-				ENG_war_with_japan
 				bomber_command_focus
 				maud_focus
 			}
@@ -74,9 +73,7 @@ bookmarks = {
 				victor_emmanuel
 			}
 			focuses = {
-				ITA_pact_of_steel
-				ITA_spanish_italian_faction
-				ITA_italy_first
+				ITA_pact_of_steel				
 			}			
 		}
 		JAP = {
@@ -139,11 +136,8 @@ bookmarks = {
 				CAN_conscription_crisis
 			}
 			focuses = {
-				CAN_skewer_the_eagle
-				CAN_north_american_alliance
-				CAN_join_comintern
-			}
 		}
+	}
 		"AST"={
 			minor = yes
 			history = "AST_BLITZKRIEG_DESC"
@@ -151,12 +145,9 @@ bookmarks = {
 			ideas = {
 				AST_great_depression_1
 			}
-			focuses = {
-				AST_never_another_gallipoli
-				AST_support_indonesian_uprising
-				AST_delegation_to_china
-			}
+			focuses = {	
 		}
+	}
 		"NZL"={
 			minor = yes
 			history = "NZL_BLITZKRIEG_DESC"
@@ -224,7 +215,6 @@ bookmarks = {
 				ROM_iron_guard
 			}
 			focuses = {
-				ROM_balkans_dominance
 				ROM_institute_royal_dictatorship
 				ROM_preserve_greater_romania
 			}
