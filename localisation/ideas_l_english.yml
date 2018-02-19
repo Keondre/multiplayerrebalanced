@@ -2472,9 +2472,6 @@
  small_arms_limited:0 "Small Arms Limited"
  communism_banned:0 "Communism Banned"
  takuo_godo:0 "Takuo Godo"
- #############################################################
-second_london_naval_treaty:0 "The Second London Naval Treaty"
-second_london_naval_treaty_d:0 "This country adheres to the naval limitations outlined in the Second London Naval Treaty."
- british_austerity_idea_2:0 "British Austerity"
- ROM_german_advisors:0 "German Advisors"
- ROM_german_advisor_d:0 "German Advisors have been sent to our country to assist in the modernization of our military."
+#################################################
+GRE_establish_the_eon_idea:0 "The EON"
+GRE_establish_the_eon_idea_desc:0 "The aims of EON are the profitable exploitation of leisure time from work or from school in order that the young people may promote their physical and intellectual training; the development of national morale and faith in religion; the creation of a spirit of cooperation and solidarity among them; and a prompt professional orientation relevant to each one’s natural capabilities."

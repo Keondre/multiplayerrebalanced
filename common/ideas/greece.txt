@@ -1,5 +1,33 @@
 ideas = {
 
+
+
+
+country = { 
+
+		GRE_establish_the_eon_idea = {
+						
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				OR = {
+					has_government = communism
+					has_government = fascism
+				}
+			}
+			
+			removal_cost = -1
+
+			picture = generic_manpower_bonus
+	
+			modifier = {
+				conscription = 0.02
+			}
+		}
+	}
+
 	political_advisor = {
 
 	GRE_damaskinos = {
@@ -294,4 +322,3 @@ theorist = {
 			traits = { naval_manufacturer }
 		}
 	}
-}
