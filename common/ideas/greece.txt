@@ -41,6 +41,18 @@ country = {
 		traits = { compassionate_gentleman }
 	}
 
+	GRE_konstantinos_maniadakis = {
+
+		picture = generic_political_advisor_europe_1
+
+		allowed = { 
+			original_tag = GRE
+		}
+		available = { has_completed_focus = GRE_the_internal_security_services }
+
+		traits = { prince_of_terror }
+	}
+
 	GRE_georgios_papandreou = {
 
 		picture = generic_political_advisor_europe_2
