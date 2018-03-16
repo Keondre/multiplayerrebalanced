@@ -40,7 +40,7 @@ focus_tree= {
 	icon = GFX_goal_support_democracy 
 
 	ai_will_do = {
-	factor = 0
+	factor = 10
 	}
 
 	available = {
@@ -64,7 +64,7 @@ focus_tree= {
 	icon = GFX_focus_rom_royal_dictatorship
 
 	ai_will_do = { 
-	factor = 0
+	factor = 10
 	}
 	available = { }
 	

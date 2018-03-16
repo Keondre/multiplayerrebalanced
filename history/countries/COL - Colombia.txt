@@ -14,6 +14,11 @@ set_technology = {
 }
 set_country_flag = monroe_doctrine
 
+add_ideas = { 
+	
+unplayable_nation
+}
+
 set_convoys = 10
 
 1939.1.1 = {

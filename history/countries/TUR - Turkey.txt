@@ -24,6 +24,11 @@ set_technology = {
 }
 
 
+add_ideas = { 
+unplayable_nation
+}
+
+
 1939.1.1 = {
 
 	add_political_power = 1198

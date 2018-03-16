@@ -15,6 +15,11 @@ focus_tree = {
 		y = 0
 		cost = 10
 
+		available = { 
+
+		num_of_factories > 1
+		}
+
 		available_if_capitulated = yes
 
 		completion_reward = {
@@ -238,6 +243,11 @@ focus_tree = {
 		cost = 10
 
 		available_if_capitulated = yes
+
+		available = { 
+
+		num_of_factories > 1
+		}
 
 
 		complete_tooltip = {
@@ -545,7 +555,9 @@ focus_tree = {
 				is_coastal = yes
 				is_controlled_by = ROOT
 			}
-		}
+
+		num_of_factories > 1
+	}
 
 		complete_tooltip = {
 			navy_experience = 25
@@ -903,6 +915,12 @@ focus_tree = {
 		cost = 10
 
 		available_if_capitulated = yes
+
+			available = { 
+
+		num_of_factories > 1
+		}
+
 
 		completion_reward = {
 			add_tech_bonus = {
@@ -1661,6 +1679,12 @@ focus_tree = {
 		cost = 10
 
 		available_if_capitulated = yes
+
+			available = { 
+
+		num_of_factories > 1
+		}
+
 
 		completion_reward = {
 			add_political_power = 120

@@ -2524,7 +2524,8 @@
  CHI_illegal_regime:0 "Illegal Regime"
 
 ##
-
+unplayable_nation:0 "Neutral Nation"
+unplayable_nation_desc:0 "This country is not allowed to be played or attacked.
  ######
 GRE_konstantinos_maniadakis:0 "Konstantinos Maniadakis"
 GRE_arms_discount:0 "The GPCC"
