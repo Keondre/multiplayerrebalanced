@@ -1847,9 +1847,9 @@ focus_tree = {
 		}
 	}
 
-	focus = {
+	focus = { #reminder that you thought of adding special forces cap % to this focus, would require a custom idea
 		id = USA_expand_the_USMC
-		icon = GFX_goal_generic_special_forces
+		icon = GFX_goal_generic_occupy_states_coastalial_forces
 		prerequisite = { focus = USA_fund_the_navy }
 		x = 0
 		y = 1
@@ -1866,9 +1866,9 @@ focus_tree = {
 				name = USA_expand_the_USMC
 				bonus = 0.5
 				uses = 1
-				technology = marines
 				technology = marines2
 			}
+
 		}
 	}
 
@@ -1892,6 +1892,7 @@ focus_tree = {
 				bonus = 0.5
 				uses = 2
 				category = tp_tech
+
 			}
 		}
 	}
