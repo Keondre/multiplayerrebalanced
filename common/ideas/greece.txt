@@ -1,34 +1,223 @@
 ideas = {
 
+country = {
 
+GRE_arms_discount = {
 
-
-country = { 
-
-		GRE_establish_the_eon_idea = {
-						
-			allowed = {
+		allowed = {
 				always = no
 			}
 
-			allowed_civil_war = {
-				OR = {
-					has_government = communism
-					has_government = fascism
-				}
-			}
-			
+
 			removal_cost = -1
 
-			picture = generic_manpower_bonus
-	
-			modifier = {
-				conscription = 0.02
+			picture = generic_infantry_bonus
+			
+			equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = -0.1 instant = yes
+				}
 			}
 		}
+
+
+GRE_the_eon = {
+
+		allowed = {
+				always = no
+		}
+
+
+
+		removal_cost = -1
+
+
+			picture = generic_manpower_bonus
+
+
+			modifier = {
+				conscription = 0.03
+			}
+		}
+		
+	
+	
+
+GRE_the_labor_battalions_idea = {
+
+			allowed = {
+					always = no
+			}
+
+			removal_cost = -1
+
+			picture = generic_manpowr_bonus #placeholder
+
+
+			modifier = { 
+			production_speed_industrial_complex_factor = 0.1
+			}
+		}
+
+		
+
+	GRE_new_argicultural_programs_idea = {
+
+				allowed = {
+						always = no
+				}
+
+			removal_cost = -1
+
+			picture = generic_goods_red_bonus
+
+			modifier = { consumer_goods_factor = -0.05
+
+			}
+		}
+		
+		
+
+
+	GRE_freedom_or_death = {
+
+			allowed = { 
+					always = no
+			}
+
+			removal_cost = -1
+
+
+			picture = generic_infantry_bonus
+
+
+			modifier = { 
+
+			army_morale_factor = 0.10
+			army_core_attack_factor = 0.05
+			army_core_defence_factor = 0.15
+		}
+	}
+	
+
+
+	GRE_hyperinflation = {
+
+
+			allowed = {
+
+			original_tag = GRE
+		}
+
+		removal_cost = -1
+
+		picture =  chi_hyper_inflation3
+
+		modifier = { consumer_goods_factor= 0.075 }
 	}
 
+
+	GRE_increasing_support_for_the_regime = {
+
+		allowed = {
+			always = no
+		}
+
+		removal_cost = -1
+
+		picture = generic_goods_red_bonus
+
+		modifier = { 
+		neutrality_drift = 0.05 
+		stability_weekly = 0.01
+	}
+}
+
+
+
+	GRE_political_instability = {
+
+			allowed = {
+
+			originaL_tag = GRE		
+		}
+
+		removal_cost = -1
+
+		picture = generic_disjointed_gov
+
+		modifier = { political_power_gain = -1.0 }
+	}
+
+
+	GRE_political_instability2 = {
+
+		allowed = {
+
+			originaL_tag = GRE		
+		}
+
+		removal_cost =1
+
+		picture = generic_disjointed_gov
+
+		modifier = { political_power_gain = -0.50 }
+	}
+
+
+
+	GRE_labour_strikes = {
+
+		allowed = {
+
+			always = no
+		}
+
+		removal_cost = -1
+
+		picture = FRA_factory_strikes
+
+		modifier = { 
+
+		industrial_capacity_factory = -0.50
+	}
+}
+
+
+				GRE_civil_disorder = {
+
+
+					allowed = {
+
+							always = no
+						}
+
+
+					removal_cost = -1
+
+					picture = prc_low_popular_support2
+
+					modifier = { 
+
+					stability_weekly = -0.005
+					}	
+				}
+			}
+
+
 	political_advisor = {
+
+GRE_konstantinos_maniadakis = {
+
+		picture = generic_political_advisor_europe_1
+
+		allowed = { 
+			original_tag = GRE
+		}
+		available = { has_completed_focus = GRE_the_internal_security_services }
+
+		traits = { prince_of_terror }
+	}
 
 	GRE_damaskinos = {
 
@@ -39,18 +228,6 @@ country = {
 		}
 		
 		traits = { compassionate_gentleman }
-	}
-
-	GRE_konstantinos_maniadakis = {
-
-		picture = generic_political_advisor_europe_1
-
-		allowed = { 
-			original_tag = GRE
-		}
-		available = { has_completed_focus = GRE_the_internal_security_services }
-
-		traits = { prince_of_terror }
 	}
 
 	GRE_georgios_papandreou = {
@@ -139,6 +316,9 @@ theorist = {
 
 			
 			traits = { army_chief_defensive_2 }
+
+			available = { has_completed_focus = GRE_defensive_strategems }
+
 			
 			ai_will_do = {
 				factor = 1

@@ -47,7 +47,7 @@ country_event = {
 		ai_chance = { factor = 25 }
 		JAP = {
 			effect_tooltip = {
-				add_national_unity = 0.05
+				add_stability = 0.05
 			}
 			country_event = { days = 1 id = japan.5 }
 		}
@@ -549,6 +549,7 @@ country_event = {
 		date > 1936.11.1
 		tag = CHI
 		has_opinion_modifier = hostile_status
+		NOT = { has_dlc = "Waking the Tiger" }
 	}
 
 	fire_only_once = yes
@@ -622,7 +623,7 @@ country_event = {
 	# Refuse to negotiate
 	option = {
 		name = soviet.19.b
-		country_event = { id = soviet.22 days = 1 }
+		SOV = { country_event = { id = soviet.22 days = 1 } }
 		set_global_flag = CHI_no_national_front_flag
 		ai_chance = { factor = 0 }
 		custom_effect_tooltip = CHI_no_united_front
@@ -2025,7 +2026,10 @@ country_event = {
 	trigger = {
 		tag = SOV
 		has_global_flag = sov_yes_pact
-		GER = { exists = yes }
+		GER = {
+			exists = yes
+			is_subject = no
+		}
 		NOT =  { has_war_with = GER }
 		OR = {
 			OR = {
@@ -2377,56 +2381,3 @@ country_event = {
 	}
 }
 
-######### Defense of Stalingrad
-
-country_event = {
-	id = soviet.63
-	title = soviet.63.t
-	desc = soviet.63.d
-	picture = GFX_report_event_notastepback
-
-	fire_only_once = yes
-
-		mean_time_to_happen = {
-				days = 1
-
-				}
-
-	trigger = { 
-	tag = SOV
-	SOV = { has_defensive_war = yes }
-	SOV = { controls_state = 217 }
-	OR = { 
-
-
-		NOT = { 245 = { is_controlled_by = SOV } }
-		NOT = { 265 = { is_controlled_by = SOV } }
-		NOT = {	238 = { is_controlled_by = SOV } }
-		}
-	}
-	
-				
-	option = {
-	name = "There is no land for us beyond the Volga!"
-
-	create_corps_commander = {
-	name = "Vasily Chuikov"
-		picture = "Portrait_Soviet_Vasily_Chuikov.dds"
-	traits = { urban_assault_specialist  }
-	skill = 3
-
-		}
-
-		217 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-						type = bunker
-						level = 5
-						province = 3529
-						instant_build = yes
-					}
-				
-	add_idea = order_no._227
-	}
-}

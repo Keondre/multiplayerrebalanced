@@ -31,6 +31,72 @@ focus_tree= {
 
 
 
+
+	focus = { 
+	id = GRE_elections
+	x = 14
+	y = 0
+	cost = 4.4
+	icon = GFX_goal_support_democracy 
+
+	ai_will_do = {
+	factor = 0
+	}
+
+	available = {
+
+	}
+	complete_tooltip{}
+
+	completion_reward = {
+
+	add_stability = 0.05
+	}
+}
+
+
+	focus = { 
+	id = GRE_break_the_political_deadlock
+	prerequisite = { focus = GRE_elections }
+	x = 15
+	y = 1
+	cost = 10
+	icon = GFX_focus_rom_royal_dictatorship
+
+	ai_will_do = { 
+	factor = 0
+	}
+	available = { }
+	
+
+	completion_reward = {
+	
+	custom_effect_tooltip = GRE_break_the_political_deadlock_tt
+
+	}
+}
+	
+focus = {
+	id = GRE_clamp_down_on_the_unrest
+	prerequisite = { focus = GRE_break_the_political_deadlock }
+	x = 16
+	y = 2
+	cost = 10
+	icon = GFX_focus_generic_little_entente
+
+	ai_will_do = {
+	factor = 10
+	}
+
+	available = { 
+	}
+	
+		completion_reward = {	
+
+			add_political_power = 75
+		}
+	}
+
 focus = {
 
 id = GRE_fourth_of_august_regime
@@ -38,8 +104,9 @@ prerequisite = { focus = GRE_clamp_down_on_the_unrest }
 relative_position_id = GRE_clamp_down_on_the_unrest
 x = 0
 y = 1
-cost = 10
-icon = GFX_goal_demand_sudetenland
+cost = 6.4
+
+icon = GFX_GRE_fourth_regime
 
 
 ai_will_do = {
@@ -49,19 +116,20 @@ ai_will_do = {
 	available = {
 	}
 
-	complete_tooltip = {}
-
 	completion_reward = { 
-	add_political_power = 150
-	}
 
+	custom_effect_tooltip = GRE_fourth_of_august_regime_tt
+	
+	add_stability = -0.10
+	}
 }
 
 
 	focus = {
 	
 		id = GRE_third_hellenic_civilization
-		prerequisite = { focus = GRE_new_greece }
+		prerequisite = { focus = GRE_restore_public_order }
+		prerequisite = { focus = GRE_increase_support_for_the_regime }
 		relative_position_id = GRE_fourth_of_august_regime
 		x = -3
 		y = 3
@@ -77,9 +145,10 @@ ai_will_do = {
 		}
 
 		complete_tooltip { }
-		completion_reward = { }
+		completion_reward = { 
+		add_stability = 0.15
 	}
-
+}
 	focus = { 
 	id = GRE_establish_the_eon
 	prerequisite = { focus = GRE_ban_the_opposition }
@@ -100,89 +169,16 @@ ai_will_do = {
 	complete_tooltip = {}
 
 	completion_reward = {
-	add_ideas = GRE_establish_the_eon_idea
+	add_ideas = GRE_the_eon
+
 	}
 }
-	
-
-	focus = { 
-
-	id = GRE_clamp_down_on_the_unrest
-	x = 15
-	y = 0
-	cost = 10
-	icon = GFX_focus_generic_little_entente
-
-	ai_will_do = {
-	factor = 10
-	}
-
-	available = { 
-	}
-
-	complete_tooltip{}
-
-	completion_reward = {	
-	}
-}
-
-		focus = { 
-		id = GRE_build_the_metaxas_line
-		x = 20
-		y = 0
-		cost = 10
-		icon = GFX_goal_generic_fortify_city
-
-		ai_will_do = { 
-		factor = 10
-		}
-
-		available = { 
-		}
-
-		complete_tooltip = {}
-
-		completion_reward = { 
-
-			184 = { 
-
-				add_building_construction = {
-				type = bunker
-				level = 5
-				province = 11774
-				instant_build = yes
-			}
-				add_building_construction = {
-				type = bunker
-				level = 7 #Fort Roupel
-				province = 6990
-				instant_build = yes
-			} 
-				add_building_construction = {
-				type = bunker
-				level = 5
-				province = 9791
-				instant_build = yes
-				}
-			}
-
-			731 = { 
-				add_building_construction = { 
-				type = bunker
-				level = 5
-				province = 3526 
-				instant_build = yes
-			}
-		}
-	}
-}
-
 			focus = { 
 			id = GRE_establish_the_ika #Social Insurance Fund
 			prerequisite = { focus = GRE_10_year_plan }
 			relative_position_id = GRE_stabilize_the_drachma
 			x = -2
-			y = 5
+			y = 2
 			cost = 10
 			icon = GFX_goal_generic_construct_civ_factory
 
@@ -227,7 +223,10 @@ ai_will_do = {
 			complete_tooltip = {}
 
 			completion_reward = { 
-			##stability
+
+			remove_ideas = { 
+								GRE_hyperinflation 
+			}
 		}
 	}
 
@@ -259,10 +258,10 @@ ai_will_do = {
 
 			focus = { 
 			id = GRE_armed_neutrality
-			prerequisite = { focus = GRE_foreign_policy }
+			prerequisite = { focus = GRE_fourth_of_august_regime }
 			relative_position_id = GRE_fourth_of_august_regime
-			x = 5
-			y = 6
+			x = 6
+			y = 1
 			cost = 10
 			icon = GFX_goal_generic_build_tank
 
@@ -275,7 +274,10 @@ ai_will_do = {
 			complete_tooltip {}
 
 			completion_reward = {
-			add_ideas = deterrence #placeholder
+
+			add_political_power = 100
+			army_experience = 25
+			
 		}
 	}
 
@@ -286,7 +288,7 @@ ai_will_do = {
 			id = GRE_war_games
 			prerequisite = { focus = GRE_armed_neutrality }
 			relative_position_id = GRE_armed_neutrality
-			x = -1
+			x = 0
 			y = 1
 			cost = 10
 			icon = GFX_goal_generic_cavalry
@@ -370,7 +372,7 @@ ai_will_do = {
 			prerequisite = { focus = GRE_establish_the_ika }
 			relative_position_id = GRE_restore_public_order
 			x = -1
-			y = 6
+			y = 4
 			cost = 10
 			icon = GFX_goal_generic_consumer_goods
 
@@ -384,6 +386,8 @@ ai_will_do = {
 			complete_tooltip = {}
 
 			completion_reward = {
+
+			add_ideas = GRE_new_argicultural_programs_idea
 			}
 		}
 
@@ -442,35 +446,46 @@ ai_will_do = {
 		factor = 10
 		}
 
-		available = {}
+		available = {
+
+		}
 		
-		complete_tooltip = {}
+		complete_tooltip = {
+		
+		}
 
 		completion_reward = {
-		add_political_power = 100
+		add_stability = 0.15
+
+		remove_ideas = GRE_civil_disorder
 
 		}
 	}
-
 		focus = { 
-		id = GRE_nationalist_sentiments
+		id = GRE_freedom_or_death
 		prerequisite = { focus = GRE_establish_the_eon }
 		prerequisite = { focus = GRE_ban_the_opposition }
 		relative_position_id = GRE_establish_the_eon
 		icon = GFX_goal_support_fascism
 		x = 2
-		y = 2
+		y = 1
 		cost = 10
 
 		ai_will_do = {
 		factor = 10
 		}
 
-		available = {}
+		available = {
+
+		}
 		
-		complete_tooltip = {}
+		complete_tooltip = {
+
+		}
 
 		completion_reward = {
+
+		add_ideas = GRE_freedom_or_death
 		}
 	}
 
@@ -483,6 +498,7 @@ ai_will_do = {
 		x = 1
 		y = 3
 		cost = 10
+		icon = GFX_goal_generic_construct_civilian
 
 		ai_will_do = { 
 		factor = 10
@@ -494,54 +510,10 @@ ai_will_do = {
 
 		completion_reward = {
 
-		}
-	}
-
-
-
-		focus = { 
-		id = GRE_foreign_policy
-		prerequisite = { focus = GRE_fourth_of_august_regime }
-		relative_position_id =  GRE_clamp_down_on_the_unrest
-		icon = GFX_goal_support_fascism
-		x = 6
-		y = 2
-		cost = 4.6
-
-		ai_will_do = {
-		factor = 10
-		}
-		
-		available = {}
-
-		complete_tooltip = {}
-
-		completion_reward = {
+		add_ideas = GRE_the_labor_battalions_idea 
 
 		}
 	}
-
-		focus = { 
-		id = GRE_experienced_general_staff
-		icon = GFX_goal_support_fascism
-		x = 22
-		y = 5
-		cost = 10
-
-		ai_will_do = {
-		factor = 10
-		}
-		
-		available = {}
-
-		complete_tooltip = {}
-
-		completion_reward = {
-
-		}
-	}
-
-
 
 		focus = { 
 		id = GRE_increase_support_for_the_regime
@@ -560,10 +532,18 @@ ai_will_do = {
 
 		complete_tooltip = {}
 
-		completion_reward = {
+		completion_reward = { 
+		add_timed_idea = { idea = GRE_increasing_support_for_the_regime days = 365 }
 
+		hidden_effect = {
+
+		remove_ideas = { GRE_political_instability }
+
+		add_ideas = { GRE_political_instability2 }
 		}
 	}
+}
+
 		focus = { 
 		id = GRE_the_internal_security_services
 		prerequisite = { focus = GRE_increase_support_for_the_regime }
@@ -571,7 +551,7 @@ ai_will_do = {
 		icon = GFX_goal_support_fascism
 		x = -1
 		y = 2
-		cost = 4.5
+		cost = 10
 
 		ai_will_do = {
 		factor = 10
@@ -582,6 +562,17 @@ ai_will_do = {
 		complete_tooltip = {}
 
 		completion_reward = {
+
+
+		add_tech_bonus = {
+
+		uses = 2
+		bonus = 0.5
+		ahead_reduction = 1
+		technology = tech_military_police
+		technology = tech_military_police2
+
+		}
 
 		custom_effect_tooltip = available_political_advisor
 		show_ideas_tooltip = GRE_konstantinos_maniadakis
@@ -604,37 +595,19 @@ ai_will_do = {
 		}
 
 		completion_reward = { 
+
+		add_political_power = 100
 		}
 
 	}
 
-		focus = { 
-		id = GRE_new_greece
-		prerequisite = {focus = GRE_restore_public_order }
-		prerequisite = { focus = GRE_increase_support_for_the_regime }
-		relative_position_id = GRE_fourth_of_august_regime
-		icon = GFX_goal_generic_national_unity
-		x = -3
-		y = 2
-		cost = 10
-
-		ai_will_do = {
-		factor = 10
-		}
-		available ={
-
-		}
-
-		completion_reward = { 
-		}
-	}
-
-
+		
 		focus = { 
 		id = GRE_ban_the_opposition 
 		prerequisite = { focus = GRE_the_labor_battalions }
 		prerequisite = { focus = GRE_the_internal_security_services }
 		relative_position_id = GRE_fourth_of_august_regime
+		icon = GFX_goal_generic_forceful_treaty
 		x = 0
 		y = 3	
 		cost = 10
@@ -649,41 +622,34 @@ ai_will_do = {
 
 
 		completion_reward = { 
+
+		add_popularity = {
+			ideology = communism
+			popularity = -1.0
+		}
+
+		add_popularity = {
+			ideology = fascism
+			popularity = -1.0
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = -1.0
+		}
+
+		remove_ideas = { 
+
+		GRE_political_instability2 
+
 		}
 	}
-
-
-			focus = {
-			id = GRE_trade_treaty_with_germany
-			prerequisite = { focus = GRE_foreign_policy }
-			relative_position_id = GRE_fourth_of_august_regime
-			x = 5
-			y = 2
-			cost = 10
-			icon = GFX_goal_generic_trade
-
-			ai_will_do = {
-			factor = 10
-			}
-
-			available ={
-			NOT = { has_war_with = GER }
-			}
-
-			completion_reward = {
-			add_popularity = { ideology = fascism popularity = 0.05 }
-			add_opinion_modifier = { target = GER modifier = ROM_trade_treaty_with_germany }
-			GER = { add_opinion_modifier = { target = ROOT modifier = ROM_trade_treaty_with_germany } 
-			}
-		}
-	}
-
+}
 
 			focus = { 
 			id = GRE_take_advantage_of_the_schacht_plan 
-			prerequisite = { focus = GRE_trade_treaty_with_germany }
-			relative_position_id = GRE_trade_treaty_with_germany
-			x = 0
+			prerequisite = { focus = GRE_spanish_arms_dealings }
+			relative_position_id = GRE_spanish_arms_dealings
+			x = -2
 			y = 1
 			cost = 10
 			icon = GFX_goal_generic_major_alliance
@@ -698,6 +664,10 @@ ai_will_do = {
 
 
 			completion_reward = { 
+
+			custom_effect_tooltip = GRE_take_advantage_of_the_schacht_plan_tt
+
+
 			}
 		}
 
@@ -705,11 +675,11 @@ ai_will_do = {
 
 			focus = { 
 			id = GRE_spanish_arms_dealings
-			prerequisite = { focus = GRE_foreign_policy }
-			relative_position_id = GRE_trade_treaty_with_germany 
-			x = 0
-			y = 3
-			cost = 10
+			prerequisite = { focus = GRE_armed_neutrality }
+			relative_position_id = GRE_fourth_of_august_regime
+			x = 4
+			y = 2
+			cost = 4.4
 			icon = GFX_goal_generic_intelligence_exchange
 
 
@@ -719,25 +689,34 @@ ai_will_do = {
 
 				available = {
 
-				}
+				SPR = { has_civil_war = yes }
 
-				complete_tooltip = {}
+				}
 
 				completion_reward = { 
+
+				army_experience = 25
+
+				custom_effect_tooltip = GRE_spanish_arms_dealings_tt
+
+				hidden_effect = { 
+
+				SPR = { add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 3000 producer = GRE } }
+
+
+				D01 = { add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 2000 producer = GRE } }
+
+
 				}
 			}
-
-
-
-
-
+		}
 
 			focus = { 
 			id = GRE_the_gpcc
-			prerequisite = { focus = spanish_arms_dealings }
-			relative_position_id = GRE_trade_treaty_with_germany 
-			x = 3
-			y = 2
+			prerequisite = { focus = GRE_spanish_arms_dealings }
+			relative_position_id = GRE_spanish_arms_dealings
+			x = 0
+			y = 1
 			cost = 10
 			icon = GFX_goal_generic_construct_mil_factory
 
@@ -753,8 +732,11 @@ ai_will_do = {
 
 				completion_reward = { 
 
+				add_ideas = GRE_arms_discount
+
+
 			47 = { 
-			add_extra_state_shared_building_slots = 4
+			add_extra_state_shared_building_slots = 2
 			add_building_construction = {
 			type = arms_factory 
 			level = 2
@@ -764,13 +746,12 @@ ai_will_do = {
 	}
 }
 
-
 				focus = { 
-				id = GRE_german_rifles
+				id = GRE_german_rifle_designs
 				prerequisite = { focus = GRE_take_advantage_of_the_schacht_plan }
-				relative_position_id = GRE_fourth_of_august_regime
-				x = 3
-				y = 4
+				relative_position_id = GRE_take_advantage_of_the_schacht_plan
+				x = 0
+				y = 1
 				cost = 10
 				icon = GFX_goal_generic_small_arms
 
@@ -783,14 +764,211 @@ ai_will_do = {
 
 				}
 
-				complete_tooltip = {}
 
 				completion_reward = { 
+
 				add_tech_bonus = {
 				bonus = 0.5
 				uses = 1
-				category = infantry_weapons2
+				category = infantry_weapons
 
+				}
+			}
+		}
+
+
+
+
+				focus = {
+				id = GRE_increase_the_military_budget
+				prerequisite = { focus = GRE_armed_neutrality }
+				relative_position_id = GRE_armed_neutrality
+				x = 2
+				y = 1
+				cost = 10
+				icon = GFX_goal_generic_construct_mil_factory
+
+				ai_will_do = {
+
+				factor = 10
+				}
+
+				available = {
+
+				}
+
+				complete_tooltip = {
+				
+				}
+
+
+				completion_reward = {
+
+				186 = { 
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+			type = arms_factory 
+			level = 2
+			instant_build = yes
+			}
+		}
+
+	}
+}
+
+
+		focus = { 
+		id = GRE_build_the_metaxas_line
+		prerequisite = { focus = GRE_defensive_strategems }
+		relative_position_id = GRE_armed_neutrality
+		x = 1
+		y = 3
+		cost = 5
+		icon = GFX_goal_generic_fortify_city
+
+		ai_will_do = { 
+		factor = 10
+		}
+
+		available = { 
+		}
+
+		complete_tooltip = {}
+
+		completion_reward = { 
+
+			184 = { 
+
+				add_building_construction = {
+				type = bunker
+				level = 5
+				province = 11774
+				instant_build = yes
+			}
+				add_building_construction = {
+				type = bunker
+				level = 7 #Fort Roupel
+				province = 6990
+				instant_build = yes
+			} 
+				add_building_construction = {
+				type = bunker
+				level = 5
+				province = 9791
+				instant_build = yes
+				}
+			}
+
+			731 = { 
+				add_building_construction = { 
+				type = bunker
+				level = 5
+				province = 3526
+				instant_build = yes
+			}
+		}
+	}
+}
+
+
+			focus = { 
+				id = GRE_fortify_epirus
+				prerequisite = { focus = GRE_defensive_strategems }
+				relative_position_id = GRE_armed_neutrality
+				x = -1
+				y = 3
+				cost = 5
+				icon = GFX_goal_generic_construct_military
+
+				ai_will_do = {
+
+				factor = 10
+
+				}
+
+			available = {
+
+				 ALB = { exists = no }
+
+				 }	
+
+				complete_tooltip = {
+				
+				}
+
+
+				completion_reward = {
+
+				185 = {
+
+				add_building_construction = {
+				type = bunker
+				level = 3
+				province = 9805
+				instant_build = yes
+			}
+				add_building_construction = {
+				type = bunker
+				level = 3 
+				province = 3914
+				instant_build = yes
+			} 
+				add_building_construction = {
+				type = bunker
+				level = 4
+				province = 841
+				instant_build = yes				
+			}
+
+				add_building_construction = {
+				type = bunker
+				level = 4
+				province = 9837
+				instant_build = yes				
+			}
+
+				add_building_construction = {
+				type = air_base
+				level = 2 
+				instant_build = yes
+			}
+
+		}
+	}
+}
+
+
+
+			
+			focus = {
+			id = GRE_modern_artillery
+			prerequisite = { focus = GRE_increase_the_military_budget }
+			relative_position_id = GRE_increase_the_military_budget
+			x = 0
+			y = 1
+			cost = 10
+			icon = GFX_goal_generic_army_artillery2
+				ai_will_do = {
+
+				factor = 10
+
+				}
+
+			available = {
+
+				 }	
+
+				complete_tooltip = {
+				
+				}
+
+
+				completion_reward = {
+
+				add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = artillery
 				}
 			}
 		}
@@ -802,9 +980,81 @@ ai_will_do = {
 
 
 
+			focus = {
+			id = GRE_alpine_warfare
+			prerequisite = { focus = GRE_war_games }
+			relative_position_id = GRE_war_games
+			x = 0
+			y = 1
+
+				cost = 10
+
+				ai_will_do = {
+
+				factor = 10
+
+				}
+
+			available = {
+
+				 }	
+
+				complete_tooltip = {
+				
+				}
+
+
+				completion_reward = {
+
+					add_tech_bonus = {
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 1
+				technology = tech_mountaineers2
+
+			}
+		}
+	}
 
 
 
+			focus = { 
+			id = GRE_defensive_strategems
+			prerequisite = { focus = GRE_war_games }
+			relative_position_id = GRE_war_games 
+			x = 0
+			y = 1
+			icon = GFX_goal_generic_defence
+
+
+				cost = 10
+
+				ai_will_do = {
+
+				factor = 10
+
+				}
+
+			available = {
+
+				 }	
+
+				complete_tooltip = {
+				
+				}
+
+
+				completion_reward = {
+
+					add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				technology = tech_engineers
+				technology = tech_engineers2
+
+			}
+		}
+	}
 
 
 

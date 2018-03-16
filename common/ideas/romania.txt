@@ -312,7 +312,27 @@ ideas = {
 			}
 			
 			modifier = {
-				unity_factor = 0.05
+				stability_factor = 0.05
+			}
+		}
+
+		ROM_securitate = {
+
+			picture = generic_secret_police
+
+			removal_cost = -1
+			
+			allowed = {
+				original_tag = ROM
+			}
+
+			allowed_civil_war = {
+
+			}
+			
+			modifier = {				
+				enemy_partisan_effect = -0.1
+				foreign_subversive_activites = -0.4
 			}
 		}
 
@@ -370,6 +390,45 @@ ideas = {
 			modifier = {
 				guarantee_tension = -1.0
 				guarantee_cost = -0.5
+			}
+		}
+
+		ROM_a_deal_with_the_devil = {
+
+			picture = generic_deal_with_the_devil
+
+			removal_cost = -1
+			
+			allowed = {
+				original_tag = ROM
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+			
+			modifier = {
+				communism_drift = 0.01
+			}
+		}
+
+		ROM_a_deal_with_the_devil_2 = {
+
+			picture = generic_deal_with_the_devil
+
+			removal_cost = -1
+			
+			allowed = {
+				original_tag = ROM
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+			
+			modifier = {
+				communism_drift = 0.01
+				conscription = 0.01
 			}
 		}
 
@@ -482,31 +541,31 @@ ideas = {
 
 			equipment_bonus = {
 				fighter_equipment = {
-					build_cost_ic = -0.05
+					build_cost_ic = -0.1
 					instant = yes
 				}
 				cv_fighter_equipment = {
-					build_cost_ic = -0.05
+					build_cost_ic = -0.1
 					instant = yes
 				}
 				CAS_equipment = {
-					build_cost_ic = -0.05
+					build_cost_ic = -0.1
 					instant = yes
 				}
 				cv_CAS_equipment = {
-					build_cost_ic = -0.05
+					build_cost_ic = -0.1
 					instant = yes
 				}
 				cv_nav_bomber_equipment = {
-					build_cost_ic = -0.05
+					build_cost_ic = -0.1
 					instant = yes
 				}
 				nav_bomber_equipment = {
-					build_cost_ic = -0.05
+					build_cost_ic = -0.1
 					instant = yes
 				}
 				tac_bomber_equipment = {
-					build_cost_ic = -0.05
+					build_cost_ic = -0.1
 					instant = yes
 				}
 				heavy_fighter_equipment = {
@@ -514,13 +573,13 @@ ideas = {
 					instant = yes
 				}
 				strat_bomber_equipment = {
-					build_cost_ic = -0.05
+					build_cost_ic = -0.1
 					instant = yes
 				}
 			}
 
 			modifier = {
-				air_ace_generation_chance_factor = 0.5
+				air_ace_generation_chance_factor = 0.10
 			}
 		}
 
@@ -652,6 +711,15 @@ ideas = {
 		ROM_gheorghe_gheorghiu_dej = {
 
 			picture = generic_communist_europe
+
+			available = {
+				if = {
+					limit = {
+						has_dlc = "Death or Dishonor"
+					}
+					has_completed_focus = ROM_appoint_soviet_friendly_government
+				}
+			}
 
 			allowed = {
 				original_tag = ROM
@@ -1458,23 +1526,5 @@ ideas = {
 				factor = 1
 			}
 		}
-
-		ROM_german_advisors = {
-
-		picture = german_advisors
-
-		allowed = { 
-
-		original_tag = ROM
-			has_dlc = "Death or Dishonor" 
-		}
-
-		removal_cost = -1
-
-		research_bonus = {
-		land_doctrine = 0.05
-
-		}
 	}
-
-
+}
