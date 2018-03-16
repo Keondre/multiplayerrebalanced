@@ -923,8 +923,8 @@ ideas = {
 			picture = ger_mefo_bills
 
 			modifier = {
-				consumer_goods_factor = -0.20
-				political_power_gain = -0.20
+				consumer_goods_factor = -0.10
+				political_power_gain = -0.30
 			}
 		}
 
@@ -943,8 +943,8 @@ ideas = {
 			picture = ger_mefo_bills
 
 			modifier = {
-				consumer_goods_factor = -0.20
-				political_power_gain = -0.25
+				consumer_goods_factor = -0.10
+				political_power_gain = -0.45
 			}
 		}
 
@@ -963,8 +963,8 @@ ideas = {
 			picture = ger_mefo_bills
 
 			modifier = {
-				consumer_goods_factor = -0.20
-				political_power_gain = -0.30
+				consumer_goods_factor = -0.10
+				political_power_gain = -0.40
 			}
 		}
 
@@ -983,8 +983,8 @@ ideas = {
 			picture = ger_mefo_bills
 
 			modifier = {
-				consumer_goods_factor = -0.20
-				political_power_gain = -0.35
+				consumer_goods_factor = -0.10
+				political_power_gain = -0.45
 			}
 		}
 
@@ -1003,8 +1003,8 @@ ideas = {
 			picture = ger_mefo_bills
 
 			modifier = {
-				consumer_goods_factor = -0.20
-				political_power_gain = -0.40
+				consumer_goods_factor = -0.10
+				political_power_gain = -0.50
 			}
 		}
 
@@ -1023,8 +1023,8 @@ ideas = {
 			picture = ger_mefo_bills
 
 			modifier = {
-				consumer_goods_factor = -0.20
-				political_power_gain = -0.45
+				consumer_goods_factor = -0.10
+				political_power_gain = -0.55
 			}
 		}
 
@@ -1043,8 +1043,8 @@ ideas = {
 			picture = ger_mefo_bills
 
 			modifier = {
-				consumer_goods_factor = -0.20
-				political_power_gain = -0.50
+				consumer_goods_factor = -0.10
+				political_power_gain = -0.60
 			}
 		}
 
@@ -1063,8 +1063,8 @@ ideas = {
 			picture = ger_mefo_bills
 
 			modifier = {
-				consumer_goods_factor = -0.20
-				political_power_gain = -0.55
+				consumer_goods_factor = -0.10
+				political_power_gain = -0.65
 			}
 		}
 
@@ -1083,8 +1083,8 @@ ideas = {
 			picture = ger_mefo_bills
 
 			modifier = {
-				consumer_goods_factor = -0.20
-				political_power_gain = -0.60
+				consumer_goods_factor = -0.10
+				political_power_gain = -0.70
 			}
 		}
 
@@ -1103,8 +1103,8 @@ ideas = {
 			picture = ger_mefo_bills
 
 			modifier = {
-				consumer_goods_factor = -0.20
-				political_power_gain = -0.65
+				consumer_goods_factor = -0.10
+				political_power_gain = -0.75
 			}
 		}
 
@@ -1123,9 +1123,8 @@ ideas = {
 			picture = ger_mefo_bills
 
 			modifier = {
-				consumer_goods_factor = -0.20
-				political_power_gain = -0.70
-			}
+				consumer_goods_factor = -0.10
+				political_power_gain = -0.80
 		}
 
 		GER_mefo_bills_12 = {
@@ -1143,8 +1142,8 @@ ideas = {
 			picture = ger_mefo_bills
 
 			modifier = {
-				consumer_goods_factor = -0.20
-				political_power_gain = -0.75
+				consumer_goods_factor = -0.10
+				political_power_gain = -0.85
 			}
 		}
 
@@ -1163,8 +1162,8 @@ ideas = {
 			picture = ger_mefo_bills
 
 			modifier = {
-				consumer_goods_factor = -0.20
-				political_power_gain = -0.80
+				consumer_goods_factor = -0.10
+				political_power_gain = -0.90
 			}
 		}
 
@@ -1183,8 +1182,8 @@ ideas = {
 			picture = ger_mefo_bills
 
 			modifier = {
-				consumer_goods_factor = -0.20
-				political_power_gain = -0.85
+				consumer_goods_factor = -0.10
+				political_power_gain = -0.95
 			}
 		}
 
@@ -1203,8 +1202,8 @@ ideas = {
 			picture = ger_mefo_bills
 
 			modifier = {
-				consumer_goods_factor = -0.20
-				political_power_gain = -0.90
+				consumer_goods_factor = -0.10
+				political_power_gain = -1.00
 			}
 		}
 
@@ -1223,8 +1222,8 @@ ideas = {
 			picture = ger_mefo_bills
 
 			modifier = {
-				consumer_goods_factor = -0.20
-				political_power_gain = -0.95
+				consumer_goods_factor = -0.10
+				political_power_gain = -1.10
 			}
 		}
 
@@ -1243,8 +1242,8 @@ ideas = {
 			picture = ger_mefo_bills
 
 			modifier = {
-				consumer_goods_factor = -0.20
-				political_power_gain = -1.00
+				consumer_goods_factor = -0.10
+				political_power_gain = -1.20
 			}
 		}
 
@@ -1263,8 +1262,8 @@ ideas = {
 			picture = ger_mefo_bills
 
 			modifier = {
-				consumer_goods_factor = -0.20
-				political_power_gain = -1.05
+				consumer_goods_factor = -0.10
+				political_power_gain = -1.30
 			}
 		}
 
@@ -1283,8 +1282,8 @@ ideas = {
 			picture = ger_mefo_bills
 
 			modifier = {
-				consumer_goods_factor = -0.20
-				political_power_gain = -1.10
+				consumer_goods_factor = -0.10
+				political_power_gain = -1.40
 			}
 		}
 
@@ -1303,8 +1302,8 @@ ideas = {
 			picture = ger_mefo_bills
 
 			modifier = {
-				consumer_goods_factor = -0.20
-				political_power_gain = -1.15
+				consumer_goods_factor = -0.10
+				political_power_gain = -1.50
 			}
 		}
 
@@ -1323,8 +1322,8 @@ ideas = {
 			picture = ger_mefo_bills
 
 			modifier = {
-				consumer_goods_factor = -0.20
-				political_power_gain = -1.20
+				consumer_goods_factor = -0.10
+				political_power_gain = -1.60
 			}
 		}
 
@@ -1343,8 +1342,8 @@ ideas = {
 			picture = ger_mefo_bills
 
 			modifier = {
-				consumer_goods_factor = -0.20
-				political_power_gain = -1.25
+				consumer_goods_factor = -0.10
+				political_power_gain = -1.70
 			}
 		}
 
@@ -1363,8 +1362,8 @@ ideas = {
 			picture = ger_mefo_bills
 
 			modifier = {
-				consumer_goods_factor = -0.20
-				political_power_gain = -1.30
+				consumer_goods_factor = -0.10
+				political_power_gain = -1.80
 			}
 		}
 
@@ -1382,7 +1381,7 @@ ideas = {
 			picture = ger_mefo_bills_payment
 
 			modifier = {
-				consumer_goods_factor = 0.20
+				consumer_goods_factor = 0.10
 			}
 		}
 
