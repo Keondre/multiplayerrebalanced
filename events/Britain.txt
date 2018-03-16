@@ -1,4 +1,4 @@
-add_namespace = britain 
+﻿add_namespace = britain 
 
 # Tizard mission event for USA
 country_event = {
@@ -155,7 +155,8 @@ country_event = {
 	option = {
 		name = britain.6.b
 		RAJ = {
-			add_national_unity = -0.30
+			add_stability = -0.3
+			add_war_support = -0.2
 		}
 	}
 }
@@ -266,7 +267,8 @@ country_event = {
 				
 			}
 		}
-		add_national_unity = 0.1
+		add_stability = 0.1
+		add_war_support = 0.1
 	}
 }
 
@@ -831,114 +833,5 @@ country_event = {
 	}
 }
 
-#LONDON NAVAL TREATY
-country_event = {
-	id = britain.24
-	title = britain.24.t
-	desc = britain.24.d
-	picture = GFX_report_event_london_naval_conference
-	    fire_only_once = yes
 
 
-		mean_time_to_happen = {
-			days = 1
-		}
-
-		trigger = {
-	tag = ENG
-	date > 1936.3.16
-
-	}
-
-	option = { 
-	name = "Surely this will prevent another World War."
-	add_ideas = second_london_naval_treaty
-	}
-}
-
-
-### END OF LONDON NAVAL TREATY
-country_event = { 
-	id = britain.27
-	title = britain.27.t
-	desc = britain.27.d
-	picture = 
-		fire_only_once = yes
-
-		trigger = {
-		tag = ENG
-		ENG = { has_war_with = GER }
-
-		}
-
-		option = {
-		name = "We must increase our naval production!"
-		remove_ideas = second_london_naval_treaty
-	}
-}
-
-##Their Finest Hour
-
-country_event = {
-	id = britain.25
-	title = britain.25.t
-	desc = britain.25.d
-	picture = GFX_report_event_churchill_speech
-	
-	fire_only_once = yes
-
-
-	mean_time_to_happen = {
-		days = 1
-	}
-
-	trigger = {
-	tag = ENG
-	FRA = { has_capitulated = yes }
-
-
-	}
-
-	option = {
-	name = "We Shall Never Surrender!"
-
-	add_ideas = british_austerity_idea_2
-
-	hidden_effect = { 
-	remove_ideas = british_austerity_idea
-	
-		}
-	}
-
-##### British Guarantee of Poland
-
-country_event = { 
-	id = britain.26
-	title = britain.26.t
-	desc = britain.26.d
-	picture = GFX_
-
-	fire_only_once = yes
-
-	mean_time_to_happen = { 
-			days = 1
-
-			}
-
-			trigger = {
-			tag = ENG
-
-			GER = { has_completed_focus = GER_end_of_czechoslovakia }
-
-			} 
-
-			option = { 
-			name = "British guarantee of Polish sovereignty"
-			give_guarantee = POL
-
-		}
-	}
-
-}
-
-########

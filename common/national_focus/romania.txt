@@ -64,7 +64,8 @@ focus_tree = {
 	focus = {
 		id = ROM_preserve_greater_romania
 		icon = GFX_focus_rom_preserve_romania
-		x = 4
+		mutually_exclusive = { focus = ROM_balkans_dominance }
+		x = 3
 		y = 0
 
 		cost = 10
@@ -91,6 +92,209 @@ focus_tree = {
 
 		completion_reward = {
 			add_ideas = ROM_preserve_greater_romania
+		}
+	}
+
+	focus = {
+		id = ROM_a_deal_with_the_devil
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = ROM_preserve_greater_romania }
+		x = -2
+		y = 1
+		relative_position_id = ROM_preserve_greater_romania
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		available = {
+			NOT = { has_war_with = SOV }
+			SOV = {
+				exists = yes
+				is_puppet = no
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			add_popularity = { ideology = communism popularity = 0.1 }
+			add_opinion_modifier = { target = SOV modifier = ROM_a_deal_with_the_devil }
+			SOV = { add_opinion_modifier = { target = ROOT modifier = ROM_a_deal_with_the_devil } }
+		}
+	}
+
+	focus = {
+		id = ROM_form_peasant_militias
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = ROM_a_deal_with_the_devil }
+		x = -1
+		y = 1
+		relative_position_id = ROM_a_deal_with_the_devil
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			add_ideas = ROM_a_deal_with_the_devil_2
+		}
+	}
+
+	focus = {
+		id = ROM_basing_rights_for_soviet_union
+		icon = GFX_focus_generic_soviet_politics
+		prerequisite = { focus = ROM_a_deal_with_the_devil }
+		x = 0
+		y = 2
+		relative_position_id = ROM_a_deal_with_the_devil
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			is_in_faction = no
+			SOV = {
+				exists = yes
+				is_puppet = no
+				NOT = {
+					has_war_with = ROOT
+				}
+			}
+		}
+
+		bypass = {
+			is_in_faction_with = SOV
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			SOV = { country_event = DOD_romania.30 }
+		}
+	}
+
+	focus = {
+		id = ROM_romanian_volunteer_brigades
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = ROM_basing_rights_for_soviet_union }
+		x = -1
+		y = 3
+		relative_position_id = ROM_a_deal_with_the_devil
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			add_ideas = ROM_romanian_volunteer_brigades
+		}
+	}
+
+	focus = {
+		id = ROM_join_comintern
+		icon = GFX_focus_generic_join_comintern
+		prerequisite = { focus = ROM_basing_rights_for_soviet_union }
+		x = 0
+		y = 4
+		relative_position_id = ROM_a_deal_with_the_devil
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				SOV = {
+					has_capitulated = yes
+				}
+			}
+		}
+
+		available = {
+			SOV = { is_faction_leader = yes }
+			is_in_faction = no
+			NOT = { has_war_with = SOV }
+			is_subject = no
+			NOT = {
+				any_other_country = {
+					is_in_faction_with = SOV
+					has_war_with = ROM
+				}
+			}
+		}
+
+		bypass = {
+			is_in_faction_with = SOV
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			SOV = { country_event = generic.2 }
 		}
 	}
 
@@ -131,12 +335,12 @@ focus_tree = {
 		}
 	}
 
-	focus = { # add 5% land doctrine modifer
+	focus = {
 		id = ROM_invite_german_advisors
 		icon = GFX_goal_generic_axis_build_infantry
 		prerequisite = { focus = ROM_trade_treaty_with_germany }
-		x = 1
-		y = 1
+		x = 0
+		y = 2
 		relative_position_id = ROM_trade_treaty_with_germany
 
 		cost = 10
@@ -176,18 +380,17 @@ focus_tree = {
 			}
 			add_to_tech_sharing_group = ROM_invite_german_advisors_tech_group
 			GER = { add_to_tech_sharing_group = ROM_invite_german_advisors_tech_group }
-
-			add_ideas = ROM_german_advisors 		
-	   }
+		}
 	}
 
 	focus = {
 		id = ROM_license_german_equipment
 		icon = GFX_focus_generic_license_production
 		prerequisite = { focus = ROM_invite_german_advisors }
-		x = 0
-		y = 1
-		relative_position_id = ROM_invite_german_advisors
+		x = 1
+		y = 3
+		relative_position_id = ROM_trade_treaty_with_germany
+
 		cost = 10
 
 		ai_will_do = {
@@ -224,10 +427,10 @@ focus_tree = {
 	focus = {
 		id = ROM_join_axis
 		icon = GFX_goal_support_fascism
-		prerequisite = { focus = ROM_force_abdication }
+		prerequisite = { focus = ROM_invite_german_advisors }
 		x = 0
-		y = 1
-		relative_position_id = ROM_force_abdication
+		y = 4
+		relative_position_id = ROM_trade_treaty_with_germany
 
 		cost = 10
 
@@ -242,7 +445,10 @@ focus_tree = {
 		}
 
 		available = {
-			GER = { is_faction_leader = yes }
+			GER = { 
+				is_faction_leader = yes
+				has_government = fascism
+			}
 			is_in_faction = no
 			NOT = { has_war_with = GER }
 			is_subject = no
@@ -276,10 +482,11 @@ focus_tree = {
 	focus = {
 		id = ROM_german_romanian_oil_exploitation_company
 		icon = GFX_goal_generic_oil_refinery
-		prerequisite = { focus = ROM_trade_treaty_with_germany }
+		prerequisite = { focus = ROM_join_axis }
 		x = -1
-		y = 1
+		y = 5
 		relative_position_id = ROM_trade_treaty_with_germany
+
 
 		cost = 10
 
@@ -330,6 +537,394 @@ focus_tree = {
 			}
 		}
 	}
+
+	focus = {
+		id = ROM_demand_transnistria
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = ROM_join_axis }
+		x = 1
+		y = 5
+		relative_position_id = ROM_trade_treaty_with_germany
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			192 = {
+				is_owned_by = SOV
+				is_controlled_by = SOV
+			}
+			198 = {
+				is_owned_by = SOV
+				is_controlled_by = SOV
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			create_wargoal = {
+				type = take_state_focus
+				target = SOV
+				generator = { 192 198 }
+			}
+		}
+	}
+
+	focus = {
+		id = ROM_renew_the_romanian_polish_alliance
+		icon = GFX_goal_anschluss
+		prerequisite = { focus = ROM_preserve_greater_romania }
+		x = 2
+		y = 1
+		relative_position_id = ROM_preserve_greater_romania
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		available = {
+			POL = { 
+				exists = yes 
+				is_puppet = no
+			}
+			NOT = { has_war_with = POL }
+			is_subject = no
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			add_popularity = { ideology = democratic popularity = 0.05 }
+			POL = { country_event = DOD_romania.1 }
+		}
+	}
+
+	focus = {
+		id = ROM_the_cordon_sanitaire
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = ROM_renew_the_romanian_polish_alliance }
+		x = 1
+		y = 1
+		relative_position_id = ROM_renew_the_romanian_polish_alliance
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			is_in_faction = no
+			is_subject = no
+			OR = {
+				country_exists = POL
+				country_exists = CZE
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			set_rule = { can_create_factions = yes }
+			create_faction = ROM_CORDON_SANITAIRE_FACTION
+			if = {
+				limit = {
+					CZE = { 
+						exists = yes 
+						has_capitulated = no
+						is_subject = no
+						is_in_faction = no
+					}
+				}
+				CZE = { country_event = DOD_romania.10 }
+			}
+			if = {
+				limit = {
+					POL = { 
+						exists = yes 
+						has_capitulated = no
+						is_subject = no
+						is_in_faction = no
+					}
+				}
+				POL = { country_event = DOD_romania.10 }
+			}
+			if = {
+				limit = {
+					POL = {
+						is_faction_leader = yes #Poland did own faction
+						has_capitulated = no
+					}
+				}
+				POL = {
+						country_event = generic.2
+					}
+			}
+			hidden_effect = {
+				news_event = { id = news.317 days = 1 }
+			}
+		}
+	}
+
+	focus = {
+		id = ROM_demand_a_western_guarantee
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = ROM_renew_the_romanian_polish_alliance }
+		x = 0
+		y = 2
+		relative_position_id = ROM_renew_the_romanian_polish_alliance
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			is_subject = no
+			NOT = { has_war_with = ENG }
+			NOT = { has_war_with = FRA }
+			ENG = { is_subject = no }
+			if = {
+				limit = { 
+					FRA = {
+						NOT = { is_in_faction_with = ENG }
+					}
+				}
+				FRA = { is_subject = no }
+			}
+			
+		}
+
+		bypass = {
+			OR = {
+				is_in_faction_with = ENG
+				is_in_faction_with = FRA
+			}
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			if = {
+				limit = {
+					FRA = {
+						OR = {
+							NOT = { is_in_faction_with = ENG }
+							is_faction_leader = yes #if France has formed the little entente
+						}
+					}
+				}
+				FRA = { country_event = DOD_romania.20 }
+			}
+			if = {
+				limit = {
+					ENG = {
+						is_faction_leader = yes 
+					}
+				}
+				ENG = { country_event = DOD_romania.20 }
+			}
+			
+			
+		}
+	}
+
+	focus = {
+		id = ROM_military_modernization
+		icon = GFX_goal_generic_army_artillery
+		prerequisite = { focus = ROM_demand_a_western_guarantee }
+		x = 1
+		y = 3
+		relative_position_id = ROM_renew_the_romanian_polish_alliance
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			
+			add_relation_modifier = {
+				target = ENG
+				modifier = ROM_military_modernization
+			}
+			
+			if = {
+				limit = {
+					FRA = {
+						is_in_faction_with = ENG
+					}
+				}
+				add_relation_modifier = {
+					target = FRA
+					modifier = ROM_military_modernization
+				}
+			
+			}
+		}
+	}
+
+	focus = {
+		id = ROM_join_allies
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = ROM_demand_a_western_guarantee }
+		x = 0
+		y = 4
+		relative_position_id = ROM_renew_the_romanian_polish_alliance
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				OR = {
+					ENG = {
+						has_capitulated = yes
+					}
+					FRA = {
+						has_capitulated = yes
+					}
+				}
+			}
+		}
+
+		available = {
+			ENG = { is_faction_leader = yes }
+			is_in_faction = no
+			NOT = { has_war_with = ENG }
+			is_subject = no
+			NOT = {
+				any_other_country = {
+					is_in_faction_with = ENG
+					has_war_with = ROM
+				}
+			}
+		}
+
+		bypass = {
+			is_in_faction_with = ENG
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			ENG = {
+				country_event = generic.2
+			}
+		}
+	}
+
+	focus = {
+		id = ROM_joint_allied_staff_college
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = ROM_join_allies }
+		prerequisite = { focus = ROM_military_modernization }
+		x = 1
+		y = 5
+		relative_position_id = ROM_renew_the_romanian_polish_alliance
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			is_in_faction_with = ENG
+			ENG = { is_faction_leader = yes }
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			add_to_tech_sharing_group = ROM_joint_allied_staff_college_tech_group
+			ENG = { add_to_tech_sharing_group = ROM_joint_allied_staff_college_tech_group }
+			if = {
+				limit = {
+					FRA = { is_in_faction_with = ENG }
+				}
+				FRA = { add_to_tech_sharing_group = ROM_joint_allied_staff_college_tech_group }
+			}
+		}
+	}
+
 	############################
 	##### INDUSTRY BRANCH ######
 	############################
@@ -338,7 +933,7 @@ focus_tree = {
 		id = ROM_civil_works
 		icon = GFX_goal_generic_construction
 		prerequisite = { focus = ROM_preserve_greater_romania }
-		x = -3
+		x = 5
 		y = 1
 		relative_position_id = ROM_preserve_greater_romania
 
@@ -368,7 +963,7 @@ focus_tree = {
 			add_tech_bonus = {
 				name = ROM_civil_works
 				bonus = 0.5
-				uses = 1
+				uses = 2
 				category = industry
 			}
 		}
@@ -377,7 +972,8 @@ focus_tree = {
 	focus = {
 		id = ROM_national_defense_industry
 		icon = GFX_goal_generic_construct_mil_factory
-		x = -2
+		prerequisite = { focus = ROM_balkans_dominance }
+		x = 2
 		y = 0
 		relative_position_id = ROM_civil_works
 
@@ -400,7 +996,7 @@ focus_tree = {
 		available_if_capitulated = no
 
 		complete_tooltip = {
-			46 = {
+			random_state = {
 				limit = {
 					has_state_flag = ROM_national_defense_industry_AF1
 				}
@@ -411,7 +1007,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			81 = {
+			random_state = {
 				limit = {
 					has_state_flag = ROM_national_defense_industry_AF2
 				}
@@ -425,7 +1021,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			46 = {
+			random_owned_controlled_state = {
 				limit = {
 					free_building_slots = {
 						building = arms_factory
@@ -436,12 +1032,12 @@ focus_tree = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 				set_state_flag = ROM_national_defense_industry_AF1
 			}
-			81 = {
+			random_owned_controlled_state = {
 				limit = {
 					free_building_slots = {
 						building = arms_factory
@@ -463,9 +1059,8 @@ focus_tree = {
 	focus = {
 		id = ROM_agrarian_reform
 		icon = GFX_goal_generic_consumer_goods
-		prerequisite = { focus = ROM_civil_works }
-		prerequisite = { focus = ROM_national_defense_industry }
-		x = -1
+		prerequisite = { focus = ROM_civil_works focus = ROM_national_defense_industry }
+		x = 1
 		y = 1
 		relative_position_id = ROM_civil_works
 
@@ -500,9 +1095,9 @@ focus_tree = {
 		id = ROM_danubian_transport_network
 		icon = GFX_goal_generic_construct_infrastructure
 		prerequisite = { focus = ROM_agrarian_reform }
-		x = 0
-		y = 1
-		relative_position_id = ROM_agrarian_reform
+		x = 1
+		y = 2
+		relative_position_id = ROM_civil_works
 
 		cost = 10
 
@@ -876,12 +1471,47 @@ focus_tree = {
 	}
 
 	focus = {
+		id = ROM_expand_the_university_of_bucharest
+		icon = GFX_focus_research
+		prerequisite = { focus = ROM_expand_ploiesti_oil_production }
+		x = 1
+		y = 6
+		relative_position_id = ROM_civil_works
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			num_of_factories > 50
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
 		id = ROM_exploit_the_baita_mines
 		icon = GFX_goal_generic_construction2
-		prerequisite = { focus = ROM_expand_ploiesti_oil_production }
-		x = 0
-		y = 1
-		relative_position_id = ROM_expand_ploiesti_oil_production
+		prerequisite = { focus = ROM_expand_the_university_of_bucharest }
+		x = 1
+		y = 7
+		relative_position_id = ROM_civil_works
 
 		cost = 10
 
@@ -914,7 +1544,348 @@ focus_tree = {
 	### BALKANS DOMINANCE ####
 	####¤#####################
 
-	
+	focus = {
+		id = ROM_balkans_dominance
+		icon = GFX_goal_demand_sudetenland
+		mutually_exclusive = { focus = ROM_preserve_greater_romania }
+		x = 15
+		y = 0
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			add_ideas = ROM_balkans_dominance
+			set_rule = { can_create_factions = yes }
+		}
+	}
+
+	focus = {
+		id = ROM_puppet_bulgaria
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = ROM_balkans_dominance }
+		x = -2
+		y = 1
+		relative_position_id = ROM_balkans_dominance
+		will_lead_to_war_with = BUL
+		cost = 10
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		available = {
+			is_subject = no
+			BUL = {
+				exists = yes
+				NOT = { has_war_with = ROM }
+			}
+			strength_ratio = { tag = BUL ratio > 1.5 }
+			has_army_manpower = { size > 400000 }
+		}
+
+		bypass = {
+			BUL = {
+				OR = {
+					is_puppet_of = ROM
+					exists = no 
+					AND = {
+						has_war_with = ROM
+						has_capitulated = yes
+						ROM = {
+							controls_state = 48
+							controls_state = 212
+							controls_state = 211
+						}
+					}
+				}
+			}
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			BUL = { country_event = DOD_romania.40 }
+		}
+	}
+
+	focus = {
+		id = ROM_align_hungary
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = ROM_balkans_dominance }
+		x = 1
+		y = 1
+		relative_position_id = ROM_balkans_dominance
+		will_lead_to_war_with = HUN
+		cost = 10
+
+		ai_will_do = {
+			factor = 9
+		}
+
+		available = {
+			is_subject = no
+			HUN = {
+				exists = yes
+				NOT = { has_war_with = ROM }
+			}
+			strength_ratio = {
+				tag = HUN
+				ratio > 1.5
+			}
+			has_army_manpower = { size > 400000 }
+		}
+
+		bypass = {
+			HUN = {
+				OR = {
+					is_puppet_of = ROM
+					exists = no 
+				}
+			}
+		}
+
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			HUN = { country_event = DOD_romania.50 }
+		}
+	}
+
+	focus = {
+		id = ROM_secure_greece
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = ROM_puppet_bulgaria }
+		x = -1
+		y = 1
+		relative_position_id = ROM_puppet_bulgaria
+		will_lead_to_war_with = GRE
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			is_subject = no
+			GRE = {
+				exists = yes
+				NOT = {
+					is_in_faction_with = ROM
+				}
+			}
+			strength_ratio = { tag = GRE ratio > 1 }
+			has_army_manpower = { size > 500000 }
+		}
+ 
+		bypass = {
+			GRE = {
+				OR = {
+					is_puppet_of = ROM
+					exists = no 
+				}
+			}
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = GRE
+			}
+		}
+	}
+
+	focus = {
+		id = ROM_divide_yugoslavia
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = ROM_puppet_bulgaria }
+		x = 1
+		y = 1
+		relative_position_id = ROM_puppet_bulgaria
+		will_lead_to_war_with = YUG
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			is_subject = no
+			YUG = {
+				exists = yes
+				is_puppet = no
+				NOT = {
+					is_in_faction_with = ROM
+				}
+			}
+			strength_ratio = {
+				tag = YUG
+				ratio > 1.5
+			}
+			has_army_manpower = { size > 500000 }
+		}
+
+		bypass = {
+			YUG = {
+				has_war = yes
+			}
+			has_wargoal_against = YUG
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			#Only split if YUG is not at war
+			if = {
+				limit = { YUG = { has_war = yes } }
+				create_wargoal = {
+					type = annex_everything
+					target = YUG
+				}
+				else = {				
+					YUG = {
+						country_event = DOD_romania.60
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ROM_split_czechoslovakia
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = ROM_align_hungary }
+		x = 0
+		y = 1
+		relative_position_id = ROM_align_hungary
+		will_lead_to_war_with = CZE
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			is_subject = no
+			CZE = {
+				exists = yes
+				is_puppet = no
+				NOT =  { is_in_faction_with = ROM }
+			}
+			strength_ratio = { tag = CZE ratio > 1.5 }
+			has_army_manpower = { size > 500000 }
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			GER = { country_event = DOD_romania.110 }
+		}
+	}
+
+	focus = {
+		id = ROM_secure_the_bosporus
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = ROM_secure_greece }
+		x = -1
+		y = 2
+		relative_position_id = ROM_puppet_bulgaria
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			is_subject = no
+			TUR = {
+				exists = yes
+				NOT = { has_war_with = ROM }
+			}
+			strength_ratio = { tag = TUR ratio > 1.5 }
+			has_army_manpower = { size > 750000 }
+		}
+
+		bypass = {
+			TUR = {
+				is_puppet_of = ROM
+			}
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = TUR
+			}
+		}
+	}
+
 	#############################
 	######## KING BRANCH ########
 	#############################
@@ -922,7 +1893,7 @@ focus_tree = {
 	focus = {
 		id = ROM_institute_royal_dictatorship
 		icon = GFX_focus_rom_royal_dictatorship
-		x = 7
+		x = 21
 		y = 0
 
 		cost = 10
@@ -964,6 +1935,244 @@ focus_tree = {
 				id = 550
 			}
 			remove_ideas = neutrality_idea
+		}
+	}
+
+	focus = {
+		id = ROM_king_michaels_coup
+		icon = GFX_focus_rom_coup
+		prerequisite = { focus = ROM_institute_royal_dictatorship }
+		x = 2
+		y = 1
+		relative_position_id = ROM_institute_royal_dictatorship
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_completed_focus = ROM_his_majestys_loyal_government
+			}
+		}
+
+		available = {
+			is_subject = no
+			OR = {
+				has_war = yes
+				threat > 0.25
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			create_country_leader = {
+				name = "Michael I"
+				desc = "POLITICS_MICHAEL_I_DESC"
+				picture = GFX_Portrait_romania_michael_i				
+				expire = "1965.1.1"
+				ideology = despotism
+				traits = {
+				}
+			}
+			if = {
+				limit = {
+					has_idea = ROM_king_carol_ii_hedonist
+				}
+				remove_ideas = ROM_king_carol_ii_hedonist
+			}
+			hidden_effect = {
+				news_event = { id = news.322 days = 1 }
+			}
+			
+		}
+	}
+
+	focus = {
+		id = ROM_fortify_the_borders
+		icon = GFX_goal_generic_construct_military
+		prerequisite = { focus = ROM_institute_royal_dictatorship }
+		x = -2
+		y = 1
+		relative_position_id = ROM_institute_royal_dictatorship
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			add_ideas = ROM_fortify_the_borders
+		}
+	}
+
+	focus = {
+		id = ROM_his_majestys_loyal_government
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = ROM_fortify_the_borders }
+		prerequisite = { focus = ROM_align_hungary }
+		prerequisite = { focus = ROM_revise_the_constitution }
+		mutually_exclusive = { focus = ROM_flexible_foreign_policy }
+		x = -1
+		y = 1
+		relative_position_id = ROM_fortify_the_borders
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		available = {
+			OR = {
+				has_country_flag = ROM_HUN_aligned
+				HUN = { is_subject_of = ROM }
+				AND = {
+					HUN = { exists = no }
+					ROM = {
+						owns_state = 155
+						owns_state = 154
+						owns_state = 43
+					}
+				}
+			}
+			is_subject = no
+			has_government = neutrality
+			custom_trigger_tooltip = {
+				tooltip = ROM_carol_current_leader_trigger
+				has_country_leader = { id = 550 }
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			add_political_power = 120
+		}
+	}
+
+	focus = {
+		id = ROM_militarize_the_sentinels
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = ROM_his_majestys_loyal_government }
+	
+		x = 0
+		y = 1
+		relative_position_id = ROM_his_majestys_loyal_government
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			has_government = neutrality
+			custom_trigger_tooltip = {
+				tooltip = ROM_carol_current_leader_trigger
+				has_country_leader = { id = 550 }
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			swap_ideas = {
+				add_idea = ROM_the_sentinel_of_the_motherland_2
+				remove_idea = ROM_the_sentinel_of_the_motherland
+			}			
+		}
+	}
+
+	focus = {
+		id = ROM_all_parties_must_end
+		icon = GFX_focus_rom_parties_end
+		prerequisite = { focus = ROM_militarize_the_sentinels }
+	
+		x = 0
+		y = 2
+		relative_position_id = ROM_his_majestys_loyal_government
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			has_government = neutrality
+			custom_trigger_tooltip = {
+				tooltip = ROM_carol_current_leader_trigger
+				has_country_leader = { id = 550 }
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			swap_ideas = {
+				add_idea = ROM_king_carol_ii_handled
+				remove_idea = ROM_king_carol_ii_hedonist
+			}
+			remove_country_leader_trait = hedonist
 		}
 	}
 
@@ -1047,12 +2256,176 @@ focus_tree = {
 	}
 
 	focus = {
-		id = ROM_appoint_german_friendly_government
-		icon = GFX_goal_support_fascism
+		id = ROM_flexible_foreign_policy
+		icon = GFX_goal_generic_improve_relations
 		prerequisite = { focus = ROM_revise_the_constitution }
+		mutually_exclusive = { focus = ROM_his_majestys_loyal_government }
 		x = 0
 		y = 1
 		relative_position_id = ROM_revise_the_constitution
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 9
+		}
+
+		available = {
+			is_subject = no
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			add_ideas = ROM_flexible_foreign_policy
+		}
+	}
+
+	focus = {
+		id = ROM_appoint_soviet_friendly_government
+		icon = GFX_goal_support_communism
+		prerequisite = { focus = ROM_flexible_foreign_policy }
+		x = -1
+		y = 1
+		relative_position_id = ROM_flexible_foreign_policy
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_war_with = SOV
+			}
+		}
+
+		available = {
+			is_subject = no
+			SOV = {
+				is_faction_leader = yes
+				has_government = communism
+				NOT = { has_war_with = ROM}
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			#Remove ideas or display tooltip warning that it will happen
+			if = {
+				limit = {
+					has_idea = ROM_constitutional_guarantees
+				}
+				remove_ideas = ROM_constitutional_guarantees
+				else = {
+					if = {
+						limit = {
+							has_idea = ROM_securitate
+						}
+						remove_ideas = ROM_securitate
+						else = {
+							custom_effect_tooltip = ROM_appoint_soviet_friendly_government_tooltip
+						}
+					}
+				}
+			}
+			if = {
+				limit = { NOT = { has_idea = ROM_flexible_foreign_policy_2 } }
+				swap_ideas = {
+					remove_idea = ROM_flexible_foreign_policy
+					add_idea = ROM_flexible_foreign_policy_2
+				}
+			}
+			add_popularity = {
+				popularity = 0.35
+				ideology = communism
+			}
+			add_stability = -0.05
+			add_opinion_modifier = { modifier = ROM_appoint_soviet_friendly_government target = SOV }
+			SOV = { add_opinion_modifier = { modifier = ROM_appoint_soviet_friendly_government target = ROOT } }
+		}
+	}
+
+	focus = {
+		id = ROM_securitate
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = ROM_appoint_soviet_friendly_government }
+		x = 0
+		y = 1
+		relative_position_id = ROM_appoint_soviet_friendly_government
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			add_ideas = ROM_securitate
+			#Remove ideas or display tooltip warning that it will happen
+			if = {
+				limit = {
+					has_idea = ROM_constitutional_guarantees
+				}
+				remove_ideas = ROM_constitutional_guarantees
+				else = {
+					if = {
+						limit = {
+							has_idea = ROM_securitate
+						}
+						remove_ideas = ROM_securitate
+						else = {
+							custom_effect_tooltip = ROM_appoint_soviet_friendly_government_tooltip
+						}
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ROM_appoint_german_friendly_government
+		icon = GFX_goal_support_fascism
+		prerequisite = { focus = ROM_flexible_foreign_policy }
+		x = 1
+		y = 1
+		relative_position_id = ROM_flexible_foreign_policy
 
 		cost = 10
 
@@ -1066,22 +2439,11 @@ focus_tree = {
 
 		available = {
 			is_subject = no
-			date > 1940.1.1
-
-			HUN = { owns_state = 76 }
-			SOV = { owns_state = 78 }
-			SOV = { owns_state = 80 }
-			BUL = { owns_state = 77 }
-
-			GER = { has_completed_focus = GER_second_vienna_award }
-			FRA = { has_capitulated = yes }
-
 			GER = {
 				is_faction_leader = yes
 				has_government = fascism
 				NOT = { has_war_with = ROM }
-				}
-
+			}
 		}
 
 		bypass = {
@@ -1128,7 +2490,7 @@ focus_tree = {
 			}
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = ROM_mihail_sturdza
-			add_national_unity = -0.05
+			add_stability = -0.05
 			add_opinion_modifier = { modifier = ROM_appoint_german_friendly_government target = GER }
 			GER = { add_opinion_modifier = { modifier = ROM_appoint_german_friendly_government target = ROOT } }
 			
@@ -1222,8 +2584,9 @@ focus_tree = {
 	focus = {
 		id = ROM_force_abdication
 		icon = GFX_focus_rom_abdicate
-		prerequisite = { focus = ROM_iron_guard }
-		x = 0
+		prerequisite = { focus = ROM_iron_guard focus = ROM_securitate }
+		mutually_exclusive = { focus = ROM_handle_the_king }
+		x = -1
 		y = 2
 		relative_position_id = ROM_appoint_german_friendly_government
 
@@ -1309,6 +2672,194 @@ focus_tree = {
 		}
 	}
 
+	focus = {
+		id = ROM_appoint_allied_friendly_government
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = ROM_flexible_foreign_policy }
+		x = 3
+		y = 1
+		relative_position_id = ROM_flexible_foreign_policy
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_war_with = ENG
+			}
+		}
+
+		available = {
+			is_subject = no
+			ENG = {
+				is_faction_leader = yes
+				has_government = democratic
+				NOT = { has_war_with = ROM }
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			#Remove ideas or display tooltip warning that it will happen
+			if = {
+				limit = {
+					has_idea = ROM_iron_guard
+				}
+				remove_ideas = ROM_iron_guard
+				else = {
+					if = {
+						limit = {
+							has_idea = ROM_securitate
+						}
+						remove_ideas = ROM_securitate
+						else = {
+							custom_effect_tooltip = ROM_appoint_allied_friendly_government_tooltip
+						}
+					}
+				}
+			}
+			if = {
+				limit = { NOT = { has_idea = ROM_flexible_foreign_policy_2 } }
+				swap_ideas = {
+					remove_idea = ROM_flexible_foreign_policy
+					add_idea = ROM_flexible_foreign_policy_2
+				}
+			}
+			add_popularity = {
+				popularity = 0.35
+				ideology = democratic
+			}
+			add_stability = -0.05
+			add_opinion_modifier = { modifier = ROM_appoint_allied_friendly_government target = ENG }
+			ENG = { add_opinion_modifier = { modifier = ROM_appoint_allied_friendly_government target = ROOT } }
+		}
+	}
+
+	focus = {
+		id = ROM_constitutional_guarantees
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = ROM_appoint_allied_friendly_government }
+		x = 0
+		y = 1
+		relative_position_id = ROM_appoint_allied_friendly_government
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			add_ideas = ROM_constitutional_guarantees
+			#Remove ideas or display tooltip warning that it will happen
+			if = {
+				limit = {
+					has_idea = ROM_iron_guard
+				}
+				remove_ideas = ROM_iron_guard
+				else = {
+					if = {
+						limit = {
+							has_idea = ROM_securitate
+						}
+						remove_ideas = ROM_securitate
+						else = {
+							custom_effect_tooltip = ROM_appoint_allied_friendly_government_tooltip
+						}
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ROM_handle_the_king
+		icon = GFX_focus_rom_handle_king
+		prerequisite = { focus = ROM_constitutional_guarantees }
+		mutually_exclusive = { focus = ROM_force_abdication }
+		x = 0
+		y = 2
+		relative_position_id = ROM_appoint_allied_friendly_government
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		available = {
+			is_subject = no
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = ROM_carol_current_leader_trigger
+					has_country_leader = { id = 550 }
+				}
+				has_government = democratic
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_country_leader = { id = 550 }
+				}
+				retire_country_leader = yes
+			}
+			if = {
+				limit = {
+					NOT = { has_government = democratic }
+				}
+				set_politics = {
+					ruling_party = democratic
+					elections_allowed = yes
+				}
+			}
+			swap_ideas = {
+				add_idea = ROM_king_carol_ii_handled
+				remove_idea = ROM_king_carol_ii_hedonist
+			}
+		}
+	}
 
 	############################
 	######## AIR BRANCH ########
@@ -1317,7 +2868,7 @@ focus_tree = {
 	focus = {
 		id = ROM_expand_the_air_force
 		icon = GFX_goal_generic_build_airforce
-		x = 21
+		x = 31
 		y = 0
 
 		cost = 10
@@ -1466,7 +3017,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_tech_bonus = {
-				name = ROM_ground_support
+				name = ROM_air_defense
 				bonus = 0.5
 				uses = 2
 				category = cat_operational_integrity
@@ -1550,8 +3101,7 @@ focus_tree = {
 				name = ROM_medium_bombers
 				bonus = 0.5
 				uses = 1
-				technology = tactical_bomber1
-				technology = tactical_bomber2
+				category = tactical_bomber
 			}
 		}
 	}
@@ -1789,7 +3339,19 @@ focus_tree = {
 		}
 
 		completion_reward = {
-
+			#Give generic fighter bonus if fighter_2 already researched
+			if = {
+				limit = {
+					has_tech = fighter2
+				}
+				add_tech_bonus = {
+					name = ROM_iar_80
+					bonus = 0.5
+					ahead_reduction = 1
+					uses = 1
+					category = light_fighter
+				}
+				else = {
 					add_tech_bonus = {
 						name = ROM_iar_80
 						bonus = 0.5
@@ -1799,6 +3361,8 @@ focus_tree = {
 					}
 				}
 			}
+		}
+	}
 
 	focus = {
 		id = ROM_strategic_bomber_force
@@ -1836,8 +3400,7 @@ focus_tree = {
 				name = ROM_strategic_bomber_force
 				bonus = 0.5
 				uses = 1
-				technology = strategic_bomber1
-				technology = strategic_bomber2
+				category = cat_strategic_bomber
 			}
 		}
 	}
@@ -1929,7 +3492,7 @@ focus_tree = {
 	focus = {
 		id = ROM_army_maneuvers
 		icon = GFX_goal_generic_army_doctrines
-		x = 12
+		x = 39
 		y = 0
 
 		cost = 10
@@ -1998,6 +3561,10 @@ focus_tree = {
 					gfx = GFX_Portrait_romania_barbu_paraianu
 					traits = {  }
 					skill = 2
+					attack_skill = 1
+					defense_skill = 1
+					planning_skill = 3
+					logistics_skill = 1
 				}
 			}
 		}
@@ -2079,7 +3646,7 @@ focus_tree = {
 				division_template = {
 					name = "Vanatori de munte"
 					priority = 2
-	
+					division_names_group = ROM_MTN_01
 					regiments = {
 						mountaineers = { x = 0 y = 0 }
 						mountaineers = { x = 0 y = 1 }
@@ -2273,31 +3840,19 @@ focus_tree = {
 					division_template = {
 						name = "Royal Guards Division"
 						priority = 2
-		
-						regiments = { #14-4 infantry
-
+						division_names_group = ROM_INF_01
+						regiments = {
 							infantry = { x = 0 y = 0 }
 							infantry = { x = 0 y = 1 }
 							infantry = { x = 0 y = 2 }
-							infantry = { x = 0 y = 3 }
-							artillery_brigade = { x = 0 y = 4 }
 				
 		    	   		 	infantry = { x = 1 y = 0 }
 							infantry = { x = 1 y = 1 }
 							infantry = { x = 1 y = 2 }
-							infantry = { x = 1 y = 3 }
-							artillery_brigade = { x = 1 y = 4 }
 				
 		    	   		 	infantry = { x = 2 y = 0 }
-							infantry = { x = 2 y = 1 }
-							infantry = { x = 2 y = 2 } 
-							infantry = { x = 2 y = 3 } 
-							artillery_brigade = { x = 2 y = 4 }
-
-							infantry = { x = 3 y = 0 }
-							infantry = { x = 3 y = 1 }
-							artillery_brigade = { x = 3 y = 2 }
-
+							artillery_brigade = { x = 2 y = 1 }
+							artillery_brigade = { x = 2 y = 2 }
 						}
 						support = {
 							engineer = { x = 0 y = 0 }
@@ -2308,30 +3863,19 @@ focus_tree = {
 						division_template = {
 							name = "Royal Guards Division"
 							priority = 2
-			
-							regiments = { #14-4 infantry
-
-							infantry = { x = 0 y = 0 }
-							infantry = { x = 0 y = 1 }
-							infantry = { x = 0 y = 2 }
-							infantry = { x = 0 y = 3 }
-							artillery_brigade = { x = 0 y = 4 }
-				
-		    	   		 	infantry = { x = 1 y = 0 }
-							infantry = { x = 1 y = 1 }
-							infantry = { x = 1 y = 2 }
-							infantry = { x = 1 y = 3 }
-							artillery_brigade = { x = 1 y = 4 }
-				
-		    	   		 	infantry = { x = 2 y = 0 }
-							infantry = { x = 2 y = 1 }
-							infantry = { x = 2 y = 2 } 
-							infantry = { x = 2 y = 3 } 
-							artillery_brigade = { x = 2 y = 4 }
-
-							infantry = { x = 3 y = 0 }
-							infantry = { x = 3 y = 1 }
-							artillery_brigade = { x = 3 y = 2 }
+							division_names_group = ROM_INF_01
+							regiments = {
+								infantry = { x = 0 y = 0 }
+								infantry = { x = 0 y = 1 }
+								infantry = { x = 0 y = 2 }
+					
+			    	   		 	infantry = { x = 1 y = 0 }
+								infantry = { x = 1 y = 1 }
+								infantry = { x = 1 y = 2 }
+					
+			    	   		 	infantry = { x = 2 y = 0 }
+								artillery_brigade = { x = 2 y = 1 }
+								artillery_brigade = { x = 2 y = 2 }
 							}
 							support = {
 								engineer = { x = 0 y = 0 }
@@ -2430,7 +3974,7 @@ focus_tree = {
 					division_template = {
 						name = "Armored Division"
 						priority = 2
-		
+						division_names_group = ROM_ARM_01
 						regiments = {
 							medium_armor = { x = 0 y = 0 }
 							medium_armor = { x = 0 y = 1 }
@@ -2458,7 +4002,7 @@ focus_tree = {
 							division_template = {
 								name = "Armored Division"
 								priority = 2
-				
+								division_names_group = ROM_ARM_01
 								regiments = {
 									medium_armor = { x = 0 y = 0 }
 									medium_armor = { x = 0 y = 1 }
@@ -2486,7 +4030,7 @@ focus_tree = {
 									division_template = {
 										name = "Armored Division"
 										priority = 2
-						
+										division_names_group = ROM_ARM_01
 										regiments = {
 											light_armor = { x = 0 y = 0 }
 											light_armor = { x = 0 y = 1 }
@@ -2510,7 +4054,7 @@ focus_tree = {
 										division_template = {
 											name = "Armored Division"
 											priority = 2
-							
+											division_names_group = ROM_ARM_01
 											regiments = {
 												light_armor = { x = 0 y = 0 }
 												light_armor = { x = 0 y = 1 }
@@ -2668,7 +4212,7 @@ focus_tree = {
 	focus = {
 		id = ROM_expand_the_galati_shipyards
 		icon = GFX_goal_generic_construct_naval_dockyard
-		x = 30
+		x = 46
 		y = 0
 
 		cost = 10
@@ -2831,7 +4375,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_tech_bonus = {
-				name = ROM_torpedo_bombers
+				name = ROM_modern_destroyers
 				bonus = 0.75
 				uses = 1
 				category = dd_tech

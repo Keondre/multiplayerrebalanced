@@ -1,0 +1,12 @@
+spriteTypes = { 
+	SpriteType = {
+		name = "GFX_GRE_fourth_regime"
+		texturefile = "gfx/interface/goals/focus_GRE_fourth_regime.dds"
+	}
+}
+	
+
+
+
+
+

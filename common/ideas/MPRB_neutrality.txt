@@ -1,0 +1,21 @@
+ideas = {
+	
+country = {
+	
+unplayable_nation = {
+		allowed = {
+			always = no
+
+			}
+
+		removal_cost = -1
+
+		picture = generic_pp_unity_bonus
+
+		modifier = {
+		research_time_factor = 5
+		join_faction_tension = 20
+		political_power_cost = 2
+		enemy_justify_war_goal_time = 5
+		}
+	}
